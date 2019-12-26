@@ -1,0 +1,31 @@
+.title-main{
+  font-size: 40px;
+  font-family: 'magic_fleuronsregular';
+  color:rgb(183, 18, 39);
+  text-shadow: 10px 10px 10px rgb(0, 6, 26);
+}
+
+.title-second{
+  font-size: 28px;
+  font-family: 'magic_fleuronsregular';
+  color: rgb(150, 2, 30);
+}
+
+.title-third{
+  font-size: 40px;
+  font-family: 'strong_bold_bold_one';
+}
+
+#haut>div{
+  background:url(../ressources/images/background/tanjiro2.jpg);
+}
+
+.list-main,
+.second-list{
+  background-color: rgba(125, 6, 6,0.2);
+}
+
+.list-main:hover,
+.second-list:hover{
+  background-color: rgba(125, 6, 6, 0.8);
+}

@@ -1,0 +1,55 @@
+.title-main{
+  font-size: 58px;
+  font-family: 'rock-on_demoregular';
+  color: rgb(53, 53, 53);
+  text-align: center;
+  text-shadow: 10px 10px 10px black;
+}
+.title-second{
+  font-size: 36px;
+  font-family: 'savageregular';
+  color: rgb(0, 77, 153);
+}
+.title-third{
+  font-size: 28px;
+  font-family: 'rock-on_demoregular';
+}
+
+#haut>div{
+  background-image:
+  url("../ressources/images/background/Inosuke3.jpg"),
+  url("../ressources/images/background/Inosuke2.jpg");
+  background-repeat: no-repeat, repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.list-main,
+.second-list{
+  background-color: rgba(125, 6, 6,0.2);
+}
+
+.list-main:hover,
+.second-list:hover{
+  background-color: rgba(125, 6, 6, 0.8);
+}
+
+.second-container{
+  justify-content: space-between;
+}
+
+.second-container figure{
+  width: 18%;
+}
+
+.natural{
+  overflow: hidden;
+}
+
+.natural figure{
+  float: left;
+}
+
+.natural p:first-of-type{
+  padding-top: 2%;
+}
