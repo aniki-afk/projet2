@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 26 déc. 2019 à 16:36
+-- Généré le :  jeu. 26 déc. 2019 à 16:46
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -25,11 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `orderdetails`
+-- Structure de la table `orderline`
 --
 
-DROP TABLE IF EXISTS `orderdetails`;
-CREATE TABLE IF NOT EXISTS `orderdetails` (
+DROP TABLE IF EXISTS `orderline`;
+CREATE TABLE IF NOT EXISTS `orderline` (
   `Order_Id` int(11) NOT NULL,
   `Product_Id` int(11) NOT NULL,
   `Quantity_Ordered` int(200) NOT NULL,
