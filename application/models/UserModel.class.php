@@ -76,5 +76,52 @@ class UserModel {
 
       }
 
+      public function getAllUsers() {
+          $database = new Database();
+
+          $sql = 'SELECT *
+             FROM users';
+          // var_dump($database);
+          return $database->query($sql, []);
+
+
+      }
+
+      public function getOneUser() {
+        $database = new Database();
+        $sql = 'SELECT *
+           FROM users
+           WHERE Id = ?';
+        // var_dump($database);
+        return $database->queryOne($sql, [$_SESSION['id']]);
+      }
+
+      public function updateUser($post)
+      {
+        $database = new Database();
+
+        $database->executeSql('UPDATE users
+           SET FirstName = ?, LastName = ?, Pseudo = ?, Email = ?, Address = ?, City = ?, Zip = ?
+           WHERE Id = ?', [
+          $post['firstname'],
+          $post['lastname'],
+          $post['pseudo'],
+          $post['email'],
+          $post['address'],
+          $post['city'],
+          $post['zip'],
+          $_SESSION['id']]
+        );
+        $_SESSION['email'] = $post['email'];
+        $_SESSION['firstName'] = $post['firstname'];
+        $_SESSION['lastName'] = $post['lastname'];
+        $_SESSION['address'] = $post['address'];
+        $_SESSION['city'] = $post['city'];
+        $_SESSION['zip'] = $post['zip'];
+
+        $http = new Http();
+        $http->redirectTo('users/profil');
+      }
+
     }
 ?>
