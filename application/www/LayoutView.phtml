@@ -4,8 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Kimetsu no yaiba</title>
+  <title>Streaming World</title>
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
+  <script type="text/javascript" src="<?= $wwwUrl ?>/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="<?= $wwwUrl ?>/js/bootstrap-3.1.1.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <!-- Feuilles de styles de l'application -->
 
@@ -19,47 +21,10 @@
   <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
 </head>
 <body id='haut'>
-  <div class="background"></div>
-  <header class="header-main">
-    <h1 class="title title-main"></h1>
-    <p>Ce site servira à faire une présentation de l'anime Kimetsu no yaiba.</p>
-  </header>
-  <nav class="navigation-main">
-    <div class="menu">
-      <ul class="list-main">
-        <li><a class="links" href="<?= $requestUrl ?>">Accueil</a></li>
-        <li class="second-menu hchar links">
-          Les personnages
-          <ul class="second-list hchars hide">
-            <li><a class="links" href="<?= $requestUrl ?>/persos/tanjiro">Tanjiro</a></li>
-            <li><a class="links" href="<?= $requestUrl ?>/persos/nezuko">Nezuko</a></li>
-            <li><a class="links" href="<?= $requestUrl ?>/persos/zenitsu">Zenitsu</a></li>
-            <li><a class="links" href="<?= $requestUrl ?>/persos/inosuke">Inosuke</a></li>
-          </ul>
-        </li>
-        <li><a class="links" href="<?= $requestUrl ?>/produits">Produits</a></li>
-        <li><a class="links" href="<?= $requestUrl ?>/streaming">Streaming</a></li>
-        <?php if (array_key_exists('role', $_SESSION) === false){ ?>
-          <li><a class="links" href="<?= $requestUrl ?>/users/login">Login</a></li>
-        <?php }else{ ?>
-          <li class="second-menu user">
-            <i class="far fa-user-circle" style="font-size: 1.2rem; color:white"></i>
-            <ul class="second-list users hide">
-              <li><a class="links" href="<?= $requestUrl ?>/users/profil">Profil</a></li>
-              <li><a class="links" href="<?= $requestUrl ?>/users/logout">Logout</a></li>
-            </ul>
-          </li>
-        <?php } ?>
-        <li><a class="links" href="<?= $requestUrl ?>/basket"><i class="fas fa-shopping-cart"></i></a></li>
-      </ul>
-    </div>
-  </nav>
-  <main class="container">
-    <?php include $this->viewData['template']; ?>
 
-  </main>
-  <footer class="footer-main">
-    <p>Copyright (c) 2020 Copyright Holder All Rights Reserved.</p>
+  <?php include $this->viewData['template']; ?>
+  <footer class="footer-main" style="text-align:center; padding-top: 90px;">
+    <small style="color: white; font-style: italic;">Copyright (c) 2020 Copyright Holder All Rights Reserved.</small>
     <div id="up">
       <a href="#top">
         <img alt="toplogo" class="top-logo" src="<?= $wwwUrl ?>/ressources/images/top/top.gif"/>

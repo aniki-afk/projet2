@@ -36,20 +36,3 @@ $('.user').on('mouseover', function(){
 $('.users').on('mouseout', function(){
 	$('.users').addClass('hide');
 });
-
-let title = $('.title-main');
-if (window.location.href.indexOf('/') != -1) {
-	title.text("Kimetsu no Yaiba");
-}
-if (window.location.href.indexOf('/tanjiro') != -1) {
-	title.text("Tanjiro Kamado");
-}
-if (window.location.href.indexOf('/zenitsu') != -1) {
-	title.text("Zen'istu Agatsuma");
-}
-if (window.location.href.indexOf('/inosuke') != -1) {
-	title.text("Inosuke Hashibira");
-}
-if (window.location.href.indexOf('/nezuko') != -1) {
-	title.text("Nezuko Kamado");
-}

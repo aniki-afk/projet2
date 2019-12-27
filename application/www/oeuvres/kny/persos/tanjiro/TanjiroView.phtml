@@ -1,6 +1,113 @@
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/persos.css">
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/tanjiro.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/kny/persos/persos.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/kny/persos/tanjiro/tanjiro.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/kny/persos/tanjiro/tanjiroStyle.css">
+  <div></div>
+<header>
+  <h1 class="title title-main" style="text-align:center;">Tanjiro Kamado</h1>
+  <div class="ban-top">
+    <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav menu__list">
+        <li class="active menu__item menu__item--current"><a class="menu__link" href="<?= $requestUrl ?>/">Home</a></li>
+        <li class="dropdown menu__item">
+          <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">personnages <span class="caret"></span></a>
+          <ul class="dropdown-menu multi-column columns-3">
+            <div class="row">
+              <div class="col-sm-3 multi-gd-img">
+                <ul class="multi-column-dropdown">
+                  <li><a href="<?= $requestUrl ?>/oeuvres/kny/persos/tanjiro">Tanjiro</a></li>
+                  <li><a href="<?= $requestUrl ?>/oeuvres/kny/persos/nezuko">Nezuko</a></li>
+                  <li><a href="<?= $requestUrl ?>/oeuvres/kny/persos/inosuke">Inosuke</a></li>
+                  <li><a href="<?= $requestUrl ?>/oeuvres/kny/persos/zenitsu">Zenitsu</a></li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown menu__item">
+          <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+          <ul class="dropdown-menu multi-column columns-3">
+            <div class="row">
+              <div class="col-sm-3 multi-gd-img">
+                <ul class="multi-column-dropdown">
+                  <li><a href="womens.html">Tous nos produits</a></li>
+                  <li><a href="womens.html">Figurines</a></li>
+                  <li><a href="womens.html">Tomes</a></li>
+                  <li><a href="womens.html">Blu-ray</a></li>
+                  <li><a href="womens.html">Accessoires</a></li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown menu__item">
+          <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Streaming <span class="caret"></span></a>
+          <ul class="dropdown-menu multi-column columns-3">
+            <div class="row">
+              <div class="col-sm-3 multi-gd-img">
+                <ul class="multi-column-dropdown">
+                  <li><a href="<?= $requestUrl ?>/oeuvres/kny">Kimetsu No Yaiba</a></li>
+                  <li><a href="#">Vinland Saga</a></li>
+                  <li><a href="#">Dragon Ball</a></li>
+                  <li><a href="#">Naruto</a></li>
+                  <li><a href="#">One Piece</a></li>
+                  <li><a href="#">Bleach</a></li>
+                  <li><a href="#">Gintama</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-3 multi-gd-img">
+                <ul class="multi-column-dropdown">
+                  <li><a href="#">The Walking Dead</a></li>
+                  <li><a href="#">La Casa De Papel</a></li>
+                  <li><a href="#">Breaking Bad</a></li>
+                  <li><a href="#">Fast & Furious</a></li>
+                  <li><a href="#">Spider Man</a></li>
+                  <li><a href="#">Avenger</a></li>
+                  <li><a href="#">Bollywood</a></li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </ul>
+        </li>
+        <?php if (array_key_exists('role', $_SESSION) === false){ ?>
+        <li class=" menu__item"><a class="dropdown-toggle menu__link" href="<?= $requestUrl ?>/users/login">Login</a></li>
+      <?php }else{ ?>
+        <li class="dropdown menu__item">
+          <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-user-circle" style="font-size: 0.9rem; color:white"></i> <span class="caret"></span></a>
+          <ul class="dropdown-menu multi-column columns-3">
+            <div class="row">
+              <div class="col-sm-3 multi-gd-img">
+                <ul class="multi-column-dropdown">
+                  <li><a href="<?= $requestUrl ?>/users/profil">Profil</a></li>
+                  <li><a href="<?= $requestUrl ?>/users/logout">Logout</a></li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </ul>
+        </li>
+        <?php } ?>
+        <li class=" menu__item"><a class="menu__link" href="contact.html">contact</a></li>
+      </ul>
+    </div>
+    <div class="top_nav_right">
+      <div class="cart box_1">
+        <a href="checkout.html">
+          <h3> <div class="total">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
 
+          </h3>
+        </a>
+        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+
+      </div>
+    </div>
+  </div>
+</header>
+<main class="container">
 <section class="section-main background">
 	<h2 class="title-second">Background</h2>
 	<p>Protagoniste de l'histoire, il est le premier enfant d'un vendeur de charbon de bois. Toute sa famille a été attaquée par un démon alors qu'il vendait du charbon de bois, seule sa sœur Nezuko ayant survécu ; il voyage depuis lors avec sa sœur à la recherche d'un antidote pour cette dernière afin de la reconvertir en une humaine. Il est devenu un pourfendeurs de démons après un long entraînement avec Sakonji Urokodaki et appris le style d'épée « souffle de l'eau » (水の呼吸法, Mizu no kokyū-hō), mais a depuis commencé à se diversifier ; il a commencé à utiliser la « Danse du dieu du feu » (ヒノカミ神楽, Hinokami kagura) de sa famille, comme forme de combat plus puissant. Son crâne est extrêmement épais et ses coups de boule sont souvent utilisés comme des gags à travers la série. C'est un garçon au bon cœur et il éprouve souvent de la tristesse pour les démons et leurs victimes. Son optimisme sans fin et sa nature simple font souvent que les gens apprécient sa compagnie, mais en même temps, cela le met également en contradiction avec certaines personnalités. Il a également un sens de l'odorat très développé. Son katana est noir.</p>
@@ -124,3 +231,4 @@
 		</div>
 	</article>
 </section>
+</main>
