@@ -5,7 +5,12 @@ class RegisterController
     {
 
        $error = null;
-       return ['error'=>$error];
+       $artworkModel = new ArtworksModel();
+       $artworks = $artworkModel->getAllArtworks();
+       return [
+         'error'=>$error,
+         "artworks"=>$artworks
+       ];
 
     }
 

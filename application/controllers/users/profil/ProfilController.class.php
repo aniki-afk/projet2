@@ -8,6 +8,11 @@ class ProfilController
        if(empty($_SESSION) == true) {
          $http->redirectTo('/');
        }
+       $artworkModel = new ArtworksModel();
+       $artworks = $artworkModel->getAllArtworks();
+       return[
+         "artworks"=>$artworks
+       ];
 
     }
 

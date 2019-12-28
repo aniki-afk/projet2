@@ -7,7 +7,10 @@ class LoginController
 
 
       $error = null;
+      $artworkModel = new ArtworksModel();
+      $artworks = $artworkModel->getAllArtworks();
       return [
+        "artworks"=>$artworks,
         'error'=>$error
       ];
 

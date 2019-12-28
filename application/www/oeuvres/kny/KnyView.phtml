@@ -29,11 +29,11 @@
             <div class="row">
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
-                  <li><a href="womens.html">Tous nos produits</a></li>
-                  <li><a href="womens.html">Figurines</a></li>
-                  <li><a href="womens.html">Tomes</a></li>
-                  <li><a href="womens.html">Blu-ray</a></li>
-                  <li><a href="womens.html">Accessoires</a></li>
+                  <li><a href="<?= $requestUrl ?>/products">Tous nos produits</a></li>
+                  <li><a href="<?= $requestUrl ?>/products/figurines">Figurines</a></li>
+                  <li><a href="<?= $requestUrl ?>/products/tomes">Tomes</a></li>
+                  <li><a href="<?= $requestUrl ?>/products/blu_ray">Blu-ray</a></li>
+                  <li><a href="<?= $requestUrl ?>/products/accessoires">Accessoires</a></li>
                 </ul>
               </div>
               <div class="clearfix"></div>
@@ -46,24 +46,14 @@
             <div class="row">
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
-                  <li><a href="<?= $requestUrl ?>/oeuvres/kny">Kimetsu No Yaiba</a></li>
-                  <li><a href="#">Vinland Saga</a></li>
-                  <li><a href="#">Dragon Ball</a></li>
-                  <li><a href="#">Naruto</a></li>
-                  <li><a href="#">One Piece</a></li>
-                  <li><a href="#">Bleach</a></li>
-                  <li><a href="#">Gintama</a></li>
+                  <li><a href="<?= $requestUrl ?>/streaming">Tous nos streamings</a></li>
                 </ul>
               </div>
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
-                  <li><a href="#">The Walking Dead</a></li>
-                  <li><a href="#">La Casa De Papel</a></li>
-                  <li><a href="#">Breaking Bad</a></li>
-                  <li><a href="#">Fast & Furious</a></li>
-                  <li><a href="#">Spider Man</a></li>
-                  <li><a href="#">Avenger</a></li>
-                  <li><a href="#">Bollywood</a></li>
+                  <?php foreach ($artworks as $artwork): ?>
+                    <li><a href="<?= $requestUrl ?>/streaming/<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
+                  <?php endforeach; ?>
                 </ul>
               </div>
               <div class="clearfix"></div>

@@ -1,6 +1,5 @@
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/home.css">
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/homeStyle.css">
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/fontHome.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streaming.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streamingStyle.css">
 <header class="header-main">
   <h1 class="title title-main" style="text-align:center;">Streaming World</h1>
   <div class="ban-top">
@@ -96,44 +95,10 @@
     </div>
   </div>
 </div>
-
-</header>
 <main class="container">
-
-  <div class="login-right">
-    <h3>Votre Profil</h3>
-    <form class="b-form" action="<?= $requestUrl ?>/users/profil" method="POST">
-      <div class="sign-in">
-        <h4>Votre nom :</h4>
-        <input type="text" name="lastname" placeholder="Nom" value="<?= $_SESSION['lastName'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre prénom :</h4>
-        <input type="text" name="firstname" placeholder="Prénom" value="<?= $_SESSION['firstName'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre pseudo :</h4>
-        <input type="text" name="pseudo" placeholder="Pseudo" value="<?= $_SESSION['pseudo'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre email :</h4>
-        <input type="text" name="email" placeholder="email" value="<?= $_SESSION['email'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre adresse :</h4>
-        <input type="text" name="address" placeholder="Adresse" value="<?= $_SESSION['address'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre ville :</h4>
-        <input type="text" name="city" placeholder="Ville" value="<?= $_SESSION['city'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre code postal :</h4>
-        <input type="text" name="zip" placeholder="Code postal" value="<?= $_SESSION['zip'] ?>">
-      </div>
-      <div class="sign-in">
-        <input type="submit" value="Modifier">
-      </div>
-    </form>
-  </div>
+  <ul>
+  <?php foreach ($streamings as $streaming): ?>
+    <li><a href="<?= $requestUrl ?>/streaming/artwork?name=<?=  $streaming['Url']?>&id=<?= $streaming['Id'] ?>"><?= $streaming['Caption'] ?></a></li>
+  <?php endforeach; ?>
+</ul>
 </main>
