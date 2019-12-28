@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/home.css">
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/homeStyle.css">
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/fontHome.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/users/admin.css">
 <header class="header-main">
   <h1 class="title title-main" style="text-align:center;">Streaming World</h1>
   <div class="ban-top">
@@ -122,43 +123,99 @@
       </div>
     </div>
   </div>
-</header>
-<main class="container">
+  <main class="container">
+    <div class="login-right">
+      <h3>Admin</h3>
+      <div>
+        <hr>
+        <h4>Gestion des produits !</h4>
+        <a href="<?= $requestUrl ?>/users/admin/product/add" class="addProduct"><i class="fas fa-plus-circle"></i> Ajouter un nouveau produit</a>
+        <!-- <table class="tableCoke">
+        <tbody>
+        <tr class="titleCoke">
+        <td>Photo</td>
+        <td>Nom</td>
+        <td>Action</td>
+      </tr>
+      foreach ($cocas as $coca):
+      <tr>
+      <td class="pCoke"><img src="<?= $wwwUrl?>/images/cokes/['Photo']"></td>
+      <td class="nCoke">['Name']</td>
+      <td class="aCoke">
+      <a href="<?= $requestUrl ?>/users/admin/product/update?id="><i class="fas fa-pen"></i></a>
+      <a href="<?= $requestUrl ?>/users/admin/product/delete?id="><i class="fas fa-trash"></i></a>
+    </td>
+  </tr>
+  endforeach;
+</tbody>
+</table> -->
+<hr>
+<h4>Gestion du streaming !</h4>
+<a href="<?= $requestUrl ?>/users/admin/streaming/add" class="addVid"><i class="fas fa-plus-circle"></i> Ajouter une nouvelle vidéo</a>
+<!-- <table class="tableCoke">
+  <tbody>
+    <tr class="titleCoke">
+      <td>Photo</td>
+      <td>Nom</td>
+      <td>Action</td>
+    </tr>
+    foreach ($cocas as $coca):
+    <tr>
+      <td class="pCoke"><img src="<?= $wwwUrl?>/images/cokes/['Photo']"></td>
+      <td class="nCoke">['Name']</td>
+      <td class="aCoke">
+        <a href="<?= $requestUrl ?>/users/admin/product/update?id="><i class="fas fa-pen"></i></a>
+        <a href="<?= $requestUrl ?>/users/admin/product/delete?id="><i class="fas fa-trash"></i></a>
+      </td>
+    </tr>
+    endforeach;
+  </tbody>
+</table> -->
+<hr>
+<h4>Gestion des utilisateurs !</h4>
+<?php foreach ($users as $user){ ?>
+  <?php if($user['Email'] !== $_SESSION['email']) { ?>
+    <?php if (strlen($user['Role']) === 0){ ?>
+      <p>Non</p>
+    <?php }else{ ?>
+      <table class="userTable">
+        <tbody>
+          <tr>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Email</td>
+            <td>Role</td>
+            <td>Action</td>
+          </tr>
+          <?php foreach ($users as $user): ?>
+            <?php if($user['Email'] !== $_SESSION['email']) { ?>
+              <tr>
+                <td><?= $user['FirstName']?></td>
+                <td><?= $user['LastName'] ?></td>
+                <td><?= $user['Email'] ?></td>
+                <td> <select class="userRole" data-id="<?=$user['Id']?>">
+                  <?php if ( $user['Role'] === 'premium'){ ?>
+                    <option value="premium" selected>premium</option>
+                    <option value="user">user</option>
+                  <?php }else if($user['Role'] === 'user'){ ?>
+                    <option value="premium">premium</option>
+                    <option value="user" selected>user</option>
+                  <?php } ?>
+                </select></td>
+                <td><a href="<?= $requestUrl ?>/users/admin/user/delete?userId=<?=$user['Id']?>"><i class="fas fa-trash"></i></a></td>
+              </tr>
+            <?php } ?>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    <?php } ?>
+  <?php } ?>
+<?php } ?>
 
-  <div class="login-right">
-    <h3>Votre Profil</h3>
-    <form class="b-form" action="<?= $requestUrl ?>/users/profil" method="POST">
-      <div class="sign-in">
-        <h4>Votre nom :</h4>
-        <input type="text" name="lastname" placeholder="Nom" value="<?= $_SESSION['lastName'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre prénom :</h4>
-        <input type="text" name="firstname" placeholder="Prénom" value="<?= $_SESSION['firstName'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre pseudo :</h4>
-        <input type="text" name="pseudo" placeholder="Pseudo" value="<?= $_SESSION['pseudo'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre email :</h4>
-        <input type="text" name="email" placeholder="email" value="<?= $_SESSION['email'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre adresse :</h4>
-        <input type="text" name="address" placeholder="Adresse" value="<?= $_SESSION['address'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre ville :</h4>
-        <input type="text" name="city" placeholder="Ville" value="<?= $_SESSION['city'] ?>">
-      </div>
-      <div class="sign-in">
-        <h4>Votre code postal :</h4>
-        <input type="text" name="zip" placeholder="Code postal" value="<?= $_SESSION['zip'] ?>">
-      </div>
-      <div class="sign-in">
-        <input type="submit" value="Modifier">
-      </div>
-    </form>
-  </div>
+<hr>
+<h4>Gestion des commandes !</h4>
+<a href="<?= $requestUrl ?>/users/admin/order" class="addCoke"><i class="fas fa-plus-circle"></i> Gestion des commandes</a>
+</div>
+</div>
+<script src="<?= $wwwUrl ?>/js/admin.js"></script>
 </main>

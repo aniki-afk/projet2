@@ -130,8 +130,15 @@
 #up{
   position: fixed;
   bottom : 10px;
-  right: -100px;
+  right: -200px;
   opacity: 0.8;
+  background-color: rgba(53, 53, 53, 0.65);
+  border-radius: 15px;
+  border: 3px solid #fda30e;
+}
+
+#up:hover{
+  background-color: rgb(53, 53, 53);
 }
 
 html{
@@ -224,4 +231,16 @@ ul.second-list li {
   margin-left: auto;
   margin-right: auto;
   line-height: 3;
+}
+
+.comeBack{
+  background-color: rgba(53, 53, 53, 0.65);
+  color: #fda30e;
+  padding: 5px;
+  border-radius: 15px 0 15px 0;
+}
+
+.comeBack:hover{
+  background-color: rgb(53, 53, 53);
+  border-radius: 0 15px 0 15px;
 }

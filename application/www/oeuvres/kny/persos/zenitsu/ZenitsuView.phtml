@@ -80,6 +80,9 @@
 							<div class="row">
 								<div class="col-sm-3 multi-gd-img">
 									<ul class="multi-column-dropdown">
+                    <?php if ($_SESSION['role'] === 'admin'){ ?>
+                      <li><a href="<?= $requestUrl ?>/users/admin">Admin</a></li>
+                    <?php } ?>
 										<li><a href="<?= $requestUrl ?>/users/profil">Profil</a></li>
 										<li><a href="<?= $requestUrl ?>/users/logout">Logout</a></li>
 									</ul>
@@ -108,6 +111,7 @@
 	</div>
 </header>
 <main class="container">
+  <a class="comeBack" href="<?= $requestUrl ?>/oeuvres/kny"><i class="fas fa-arrow-circle-left"></i> Retour à la présentation</a>
 <section class="section-main background">
 	<h2 class="title-second">Background</h2>
 	<p>Il est un pourfendeurs de démons et un compagnon de voyage de Tanjiro. Zen'itsu est d'une personnalité lâche dû à une faible estime de lui-même, mais voulait toujours être à la hauteur des attentes des autres, même s'il était constamment effrayé, pleurait et s'enfuyait toujours. Il prétend vouloir vivre une vie modeste où il peut être utile à quelqu'un. Il devient une tout autre personne quand il s'endort lors d'un combat. Il s'est entraîné au « souffle de la foudre » (雷の呼吸法, Kaminari no kokyū-hō), par l'ancien pilier de la foudre, mais n'a pu apprendre que la première technique ; et pour cette raison, il se rabaisse souvent, malgré le fait qu'il n'est pas sans talent. Il a rejoint Tanjirō pour une mission et l'a accompagne depuis, en partie parce qu'il pense que Nezuko est belle. Son katana est jaune.</p>

@@ -103,6 +103,9 @@
     </div>
   </div>
 </header>
+<?php if ($error != null) { ?>
+  <small style="color: red; margin-left:370px; font-style: italic;"><?= $error ?></small>
+<?php } ?>
 <main class="container">
 
 <div class="login-right">

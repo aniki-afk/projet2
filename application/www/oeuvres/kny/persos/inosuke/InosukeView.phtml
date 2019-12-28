@@ -80,6 +80,9 @@
             <div class="row">
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
+                  <?php if ($_SESSION['role'] === 'admin'){ ?>
+                    <li><a href="<?= $requestUrl ?>/users/admin">Admin</a></li>
+                  <?php } ?>
                   <li><a href="<?= $requestUrl ?>/users/profil">Profil</a></li>
                   <li><a href="<?= $requestUrl ?>/users/logout">Logout</a></li>
                 </ul>
@@ -108,8 +111,7 @@
   </div>
 </header>
 <main class="container">
-
-
+  <a class="comeBack" href="<?= $requestUrl ?>/oeuvres/kny"><i class="fas fa-arrow-circle-left"></i> Retour à la présentation</a>
 <section class="section-main background">
   <h2 class="title-second">Background</h2>
   <p>Il est également un pourfendeur de démons et un compagnon de voyage de Tanjirō qui porte un masque de sanglier. Il a vécu la majeure partie de sa vie dans les bois, élevé par un sanglier, où il s'est battu avec des bêtes et des démons. C'un épéiste qualifié qui utilise deux lames pour se battre et un style personnel, nommé le « souffle de la Bête » (獣の呼吸法, Kemono no kokyū-hō). Il est culotté et enclin à réagir violemment, bien qu'il ne paraisse pas très futé, il a fait ses preuves maintes fois au combat. Il est extrêmement musclé et robuste, ce qui contraste avec son visage étrangement efféminé, qu'il cache normalement sous son masque. Lorsqu'il rencontre Tanjirō pour la première fois, il le considère comme un ennemi, mais il devient rapidement un ami lorsqu'ils se battent. Il défie souvent Tanjirō à des compétitions acceptées avec bonne humeur. Il a passé le test en même temps que Tanjirō et Zenitsu et a apparemment été le premier à le terminer. Ses katanas sont gris-violet.</p>

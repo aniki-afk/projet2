@@ -19,17 +19,6 @@
                   <li><a href="<?= $requestUrl ?>/oeuvres/kny/persos/zenitsu">Zenitsu</a></li>
                 </ul>
               </div>
-              <div class="col-sm-3 multi-gd-img">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">The Walking Dead</a></li>
-                  <li><a href="#">La Casa De Papel</a></li>
-                  <li><a href="#">Breaking Bad</a></li>
-                  <li><a href="#">Fast & Furious</a></li>
-                  <li><a href="#">Spider Man</a></li>
-                  <li><a href="#">Avenger</a></li>
-                  <li><a href="#">Bollywood</a></li>
-                </ul>
-              </div>
               <div class="clearfix"></div>
             </div>
           </ul>
@@ -90,6 +79,9 @@
             <div class="row">
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
+                  <?php if ($_SESSION['role'] === 'admin'){ ?>
+                    <li><a href="<?= $requestUrl ?>/users/admin">Admin</a></li>
+                  <?php } ?>
                   <li><a href="<?= $requestUrl ?>/users/profil">Profil</a></li>
                   <li><a href="<?= $requestUrl ?>/users/logout">Logout</a></li>
                 </ul>
@@ -119,7 +111,7 @@
 </header>
 <main class = "container">
   <section class="synopsis">
-    <h2 class="title title-second" id="synopsis">Synopsis</h2>
+    <h2 class="title title-second">Synopsis</h2>
     <div class="banner logo-princ">
       <img src="<?= $wwwUrl ?>/ressources/images/logo/Kimetsu_No_Yaiba_Logo_mini.png" alt="logo pic">
       <p class="info-banner">Logo Kimetsu No Yaiba</p>
@@ -130,21 +122,21 @@
   <section class="characters">
     <h2 class="title title-second" id="chars" class="title title-chars">Les personnages</h2>
     <p>Kimetsu No Yaiba est un univers riche en personnages. Ils suivent une évolution physique et mentale en fonction des épreuves rencontrées. Ce site sevira à présenter 4 personnages de l'œuvre.</p>
-    <article class="character">
+    <article class="character" id="tanjiro">
       <h3 class="title title-chars">Tanjiro Kamado</h3>
       <div class="banner char-pic">
         <img src="<?= $wwwUrl ?>/ressources/images/Tanjiro1.png" alt="chars pic">
         <p class="info-banner">Tanjiro Kamado</p>
       </div>
-      <p>Protagoniste de l'histoire, il est le premier enfant d'un vendeur de charbon de bois. Toute sa famille a été attaquée par un démon alors qu'il vendait du charbon de bois, seule sa...<a href="tanjiro.html"><span class="lock-on-hover">[</span>Lire la suite<span class="lock-on-hover">]</span></a></p>
+      <p>Protagoniste de l'histoire, il est le premier enfant d'un vendeur de charbon de bois. Toute sa famille a été attaquée par un démon alors qu'il vendait du charbon de bois, seule sa...<a href="<?= $requestUrl ?>/oeuvres/kny/persos/tanjiro"><span class="lock-on-hover">[</span>Lire la suite<span class="lock-on-hover">]</span></a></p>
     </article>
-    <article class="character">
+    <article class="character" id="nezuko">
       <h3 class="title title-chars">Nezuko Kamado</h3>
       <div class="banner char-pic">
         <img src="<?= $wwwUrl ?>/ressources/images/Nezuko1.png" alt="chars pic">
         <p class="info-banner">Nezuko Kamado</p>
       </div>
-      <p>La fille aînée d'un vendeur de charbon de bois et l'une des petites sœurs de Tanjirō. Elle est la seule survivante de leur famille après l'attaque d'un démon, cependant, elle a été...<a href="nezuko.html"><span class="lock-on-hover">[</span>Lire la suite<span class="lock-on-hover">]</span></a></p>
+      <p>La fille aînée d'un vendeur de charbon de bois et l'une des petites sœurs de Tanjirō. Elle est la seule survivante de leur famille après l'attaque d'un démon, cependant, elle a été...<a href="<?= $requestUrl ?>/oeuvres/kny/persos/nezuko"><span class="lock-on-hover">[</span>Lire la suite<span class="lock-on-hover">]</span></a></p>
     </article>
     <article class="character">
       <h3 class="title title-chars">Zen'itsu Agatsuma</h3>
@@ -152,7 +144,7 @@
         <img src="<?= $wwwUrl ?>/ressources/images/Zen'itsu1.png" alt="chars pic">
         <p class="info-banner">Zen'itsu Agatsuma</p>
       </div>
-      <p>Il est un pourfendeurs de démons et un compagnon de voyage de Tanjirō. Zenitsu est d'une personnalité lâche dû à une faible estime de lui-même, mais...<a href="zenitsu.html"><span class="lock-on-hover">[</span>Lire la suite<span class="lock-on-hover">]</span></a></p>
+      <p>Il est un pourfendeurs de démons et un compagnon de voyage de Tanjirō. Zenitsu est d'une personnalité lâche dû à une faible estime de lui-même, mais...<a href="<?= $requestUrl ?>/oeuvres/kny/persos/zenitsu"><span class="lock-on-hover">[</span>Lire la suite<span class="lock-on-hover">]</span></a></p>
     </article>
     <article class="character">
       <h3 class="title title-chars">Inosuke Hashibira</h3>
@@ -160,17 +152,17 @@
         <img src="<?= $wwwUrl ?>/ressources/images/Inosuke1.png" alt="chars pic">
         <p class="info-banner">Inosuke Hashibira</p>
       </div>
-      <p>Il est également un pourfendeur de démons et un compagnon de voyage de Tanjirō qui porte un masque de sanglier. Il a vécu la majeure partie de sa vie dans les bois, élevé par...<a href="inosuke.html"><span class="lock-on-hover">[</span>Lire la suite<span class="lock-on-hover">]</span></a></p>
+      <p>Il est également un pourfendeur de démons et un compagnon de voyage de Tanjirō qui porte un masque de sanglier. Il a vécu la majeure partie de sa vie dans les bois, élevé par...<a href="<?= $requestUrl ?>/oeuvres/kny/persos/inosuke"><span class="lock-on-hover">[</span>Lire la suite<span class="lock-on-hover">]</span></a></p>
     </article>
   </section>
-  <section class="autor-life">
-    <h2 class="title title-second" id="auteur">L'auteur</h2>
+  <section class="autor-life" id="koyoharu">
+    <h2 class="title title-second">L'auteur</h2>
     <article class="autor-progress">
       <figure class="manga-cover">
         <img src="<?= $wwwUrl ?>/ressources/images/Koyoharu_Gotoge_Avatar.png" alt="mangaka cover">
         <figcaption class="cover-namer">Koyoharu Gotoge Avatar</figcaption>
       </figure>
-      <p><span id="koyoharu">Koyoharu Gotōge</span>(吾峠呼世晴, Gotōge Koyoharu), né le 5 mai 1988, est un mangaka japonais et l'auteur de Kimetsu no Yaiba.</p>
+      <p><span>Koyoharu Gotōge</span>(吾峠呼世晴, Gotōge Koyoharu), né le 5 mai 1988, est un mangaka japonais et l'auteur de Kimetsu no Yaiba.</p>
     </article>
     <article class="autor-progress">
       <figure class="manga-cover">
@@ -208,13 +200,13 @@
       <p>En 2016, Gotōge à débuté son première série manga avec "Kimetsu no Yaiba" (鬼滅の刃), dans le "Weekly Shonen Jump 2016-11 issue". Kimetsu no Yaiba est un manga de chasseur de démons plus ou moins basé sur sa première œuvre "Kagarigari".</p>
     </article>
   </section>
-  <section class="anime">
-    <h2 class="title title-second" id="studio">Studio d'animation</h2>
+  <section class="anime" id="ufotable">
+    <h2 class="title title-second">Studio d'animation</h2>
     <figure class="ufo-slider">
       <img alt="Ufotable Logo" src="<?= $wwwUrl ?>/ressources/images/logo/Ufotable_Logo.png">
       <figcaption>Ufotable Logo</figcaption>
     </figure>
-    <p><span id="Ufotable">Ufotable</span>, (ユーフォーテーブル有限会社, Yūfōtēburu yūgen gaisha) est un studio d'animation japonaise situé à Suginami dans la préfecture de Tokyo, au Japon, fondée en octobre 2000. Il est principalement connu pour ses « animations d'animes » telles que les séries "Fate:zero", "Fate/Stay Night: Unlimited Blade Works", la trilogie des films "Fate/Stay Night: Heaven's feel", "Tales of Symphonia", "Kara no kyōkai" et "Kimetsu No Yaiba".</p>
+    <p><span>Ufotable</span>, (ユーフォーテーブル有限会社, Yūfōtēburu yūgen gaisha) est un studio d'animation japonaise situé à Suginami dans la préfecture de Tokyo, au Japon, fondée en octobre 2000. Il est principalement connu pour ses « animations d'animes » telles que les séries "Fate:zero", "Fate/Stay Night: Unlimited Blade Works", la trilogie des films "Fate/Stay Night: Heaven's feel", "Tales of Symphonia", "Kara no kyōkai" et "Kimetsu No Yaiba".</p>
     <p>Voici quelques démonstrations:</p>
     <div class="demo">
       <div class="work">

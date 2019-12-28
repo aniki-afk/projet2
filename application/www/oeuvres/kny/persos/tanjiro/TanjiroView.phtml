@@ -80,6 +80,9 @@
             <div class="row">
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
+                  <?php if ($_SESSION['role'] === 'admin'){ ?>
+                    <li><a href="<?= $requestUrl ?>/users/admin">Admin</a></li>
+                  <?php } ?>
                   <li><a href="<?= $requestUrl ?>/users/profil">Profil</a></li>
                   <li><a href="<?= $requestUrl ?>/users/logout">Logout</a></li>
                 </ul>
@@ -108,6 +111,7 @@
   </div>
 </header>
 <main class="container">
+    <a class="comeBack" href="<?= $requestUrl ?>/oeuvres/kny"><i class="fas fa-arrow-circle-left"></i> Retour à la présentation</a>
 <section class="section-main background">
 	<h2 class="title-second">Background</h2>
 	<p>Protagoniste de l'histoire, il est le premier enfant d'un vendeur de charbon de bois. Toute sa famille a été attaquée par un démon alors qu'il vendait du charbon de bois, seule sa sœur Nezuko ayant survécu ; il voyage depuis lors avec sa sœur à la recherche d'un antidote pour cette dernière afin de la reconvertir en une humaine. Il est devenu un pourfendeurs de démons après un long entraînement avec Sakonji Urokodaki et appris le style d'épée « souffle de l'eau » (水の呼吸法, Mizu no kokyū-hō), mais a depuis commencé à se diversifier ; il a commencé à utiliser la « Danse du dieu du feu » (ヒノカミ神楽, Hinokami kagura) de sa famille, comme forme de combat plus puissant. Son crâne est extrêmement épais et ses coups de boule sont souvent utilisés comme des gags à travers la série. C'est un garçon au bon cœur et il éprouve souvent de la tristesse pour les démons et leurs victimes. Son optimisme sans fin et sa nature simple font souvent que les gens apprécient sa compagnie, mais en même temps, cela le met également en contradiction avec certaines personnalités. Il a également un sens de l'odorat très développé. Son katana est noir.</p>

@@ -80,6 +80,9 @@
             <div class="row">
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
+                  <?php if ($_SESSION['role'] === 'admin'){ ?>
+                    <li><a href="<?= $requestUrl ?>/users/admin">Admin</a></li>
+                  <?php } ?>
                   <li><a href="<?= $requestUrl ?>/users/profil">Profil</a></li>
                   <li><a href="<?= $requestUrl ?>/users/logout">Logout</a></li>
                 </ul>
@@ -108,7 +111,7 @@
   </div>
 </header>
 <main class="container">
-
+  <a class="comeBack" href="<?= $requestUrl ?>/oeuvres/kny"><i class="fas fa-arrow-circle-left"></i> Retour à la présentation</a>
 <section class="section-main background">
 	<h2 class="title-second">Background</h2>
 	<p>La fille aînée d'un vendeur de charbon de bois et l'une des petites sœurs de Tanjirō. Elle est la seule survivante de leur famille après l'attaque d'un démon, cependant, elle a été transformée en une démon. Néanmoins, elle conserve ses souvenirs et les sentiments envers son frère qui la retient de ses impulsions de démon. Devenue sensible à la lumière du soleil, elle est transportée dans un caisson en bois par son frère lors de leurs voyages. L'hypnose par la suite d'Urokodaki l'a aidée à se transformer en une démon qui ne consomme pas de chair humaine. Elle récupère de l'énergie en dormant et ne fait que du mal aux démons mauvais. Elle est incapable de parler en tant que démon, mais elle doit également porter un bâillon en bambou afin d'éviter de mordre qui que ce soit. Elle possède plusieurs pouvoirs, dont la régénération, la force surhumaine, grandir et rétrécir rapidement et une technique qui brûle le sang qui se trouve en dehors de son corps.</p>
