@@ -1,5 +1,8 @@
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streaming.css">
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streamingStyle.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/home.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/homeStyle.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/fontHome.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/products/detail/detail.css">
+
 <header class="header-main">
   <h1 class="title title-main" style="text-align:center;">Streaming World</h1>
   <div class="ban-top">
@@ -95,12 +98,33 @@
     </div>
   </div>
 </div>
+</header>
 <main class="container">
-  <ul>
-  <?php foreach ($streamings as $streaming): ?>
-    <li><a href="<?= $requestUrl ?>/streaming/artwork?name=<?=  $streaming['Url']?>&id=<?= $streaming['Id'] ?>"><?= $streaming['Caption'] ?></a></li>
-    <video src="A:\films\Anime\Kimetsu No Yaiba/<?= $streaming['Video']?>" poster="<?= $streaming['Image'] ?>">
-    </video>
-  <?php endforeach; ?>
-</ul>
+  <div id="errorPopUp" class="hide popUp">
+      <p id="closePopUpError" class="closePopUp">X</p><p>
+      </p><h4>Impossible !</h4>
+      <p>Si vous ne rentrez pas un chiffre, on ne peut pas compter</p>
+      <img src="<?= $wwwUrl?>/images/products/no.png">
+      <button class="closePopUp">Retour au achat</button>
+  </div>
+  <div id="productPopUp" class="hide popUp">
+      <p id="closePopUpProduct" class="closePopUp">X</p><p>
+      </p><h4>Félicitation !</h4>
+      <p>Vous avez ajouté <em id="productNumber"></em> figurine(s) à votre panier</p>
+      <img src="<?= $wwwUrl?>/images/products/ok.jpg">
+      <button class="closePopUp">Retour au achat</button>
+  </div>
+  <a class="comeBack" href="<?= $requestUrl ?>/products"><i class="fas fa-arrow-circle-left"></i></a>
+  <div class="productDetail">
+    <img src="<?= $wwwUrl?>/ressources/images/products/<?=$product['Photo']?>">
+    <h3><?=$product['Name']?></h3>
+    <p><?=$product['Description']?></p>
+    <div class="paymentPart">
+      <span>Prix Unitaire : <em><?=$product['Price']?> €</em></span>
+      <form>
+        <input type="text" name="quantity" id="product-<?=$product['Id']?>">
+        <button class="addToBasket" data-name="<?=$product['Name']?>" data-price="<?=$product['Price']?>" data-id="<?=$product['Id']?>"><i class="fas fa-plus-circle"></i></button>
+      </form>
+    </div>
+  </div>
 </main>

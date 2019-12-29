@@ -150,18 +150,13 @@ class UserModel {
         public function deleteUser($userId)
         {
           $http = new Http();
-          if((array_key_exists('role', $_SESSION) === false) || $_SESSION['role'] === "user") {
+          if((array_key_exists('role', $_SESSION) === false) || $_SESSION['role'] === "user" || $_SESSION['role'] === "premium") {
             $http->redirectTo('users/login');
           }else{
               $database = new Database();
               $database->executeSql('DELETE
                 FROM users
-                WHERE Id = ? && Role = "user"',
-                [$userId]);
-              $database->executeSql('DELETE
-                FROM orders
-                INNER JOIN users ON users.Id = orders.User_Id
-                WHERE User_Id = ? && Role = "user"',
+                WHERE Id = ? && (Role = "user" || Role = "premium")',
                 [$userId]);
               $http->redirectTo('users/admin');
             }

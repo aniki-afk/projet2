@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 26 déc. 2019 à 16:46
+-- Généré le :  Dim 29 déc. 2019 à 16:39
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -21,6 +21,33 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `streaming_world`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `artworks`
+--
+
+DROP TABLE IF EXISTS `artworks`;
+CREATE TABLE IF NOT EXISTS `artworks` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(120) NOT NULL,
+  `Url` varchar(500) NOT NULL,
+  `Image` varchar(120) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `artworks`
+--
+
+INSERT INTO `artworks` (`Id`, `Name`, `Url`, `Image`) VALUES
+(1, 'Kimetsu No Yaiba', 'kny', 'kny_cover.jpg'),
+(2, 'Dragon Ball', 'db', 'db_cover.jpg'),
+(3, 'Naruto', 'naruto', 'naruto_cover.jpg'),
+(4, 'One Piece', 'op', 'op_cover.jpg'),
+(5, 'My Hero Academia', 'mha', 'mha_cover.jpg'),
+(6, 'One Punch Man', 'opm', 'opm_cover.jpg');
 
 -- --------------------------------------------------------
 
@@ -63,14 +90,34 @@ CREATE TABLE IF NOT EXISTS `orders` (
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Artworks_Id` int(11) NOT NULL,
   `Name` varchar(120) NOT NULL,
+  `Photo` varchar(90) NOT NULL,
   `ProductLine` varchar(50) NOT NULL,
   `Description` varchar(900) NOT NULL,
   `QuantityInStock` int(255) NOT NULL,
   `BuyPrice` double NOT NULL,
   `Price` double NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `products`
+--
+
+INSERT INTO `products` (`Id`, `Artworks_Id`, `Name`, `Photo`, `ProductLine`, `Description`, `QuantityInStock`, `BuyPrice`, `Price`) VALUES
+(1, 2, 'SonGoku Ultra Instinct', 'GokuMui.png', 'figurines', 'Banpresto Figurine - DBZ - Son Goku FES Vol 8 - Ultra Instinct Son Goku - 20 cm ', 50, 0.8, 70),
+(2, 3, 'Naruto Shippuden Bijuu Mode', 'NarutoBijuu.jpg', 'figurines', 'TAMASHII NATIONS Naruto Shippuden Naruto Uzumaki -Kurama- Kizuna Relation, BandaiFiguartsZERO', 35, 0.8, 42),
+(3, 4, 'Monkey D. Luffy 4ème', 'LuffyGear4.jpg', 'figurines', 'One Piece Modèle Surdimensionné Monkey D. Luffy 4ème Scène Statue Décoration D\'animation', 120, 0.8, 128),
+(5, 1, 'Kamado Tanjiro', 'tanjiro.jpg', 'figurines', 'Demon Slayer PVC Action Figures Kamado Tanjirou Tenth Style The Dragon of Change Anime Kimetsu no Yaiba Figurine', 500, 15, 50),
+(7, 5, 'All Might United States of Smash', 'allmight.jpg', 'figurines', 'Figurine Boku no Hero Academia - All Might & All For One - United States of Smash Version', 500, 95, 130),
+(23, 6, 'Genos One Punch Man', 'genos.jpg', 'figurines', 'Genos By Tsume One Punch Man. La figurine est dotée d\'un système d\'éclairage LED complexe! Les pièces mécaniques de ses bras sont très détaillées ! Poids: 10 kg, largeur: 40cm, longueur: 40 cm, hauteur: 49 cm.', 500, 110, 195),
+(22, 3, 'Madara Uchiwa by TSUME PRECO', 'madara.jpg', 'figurines', 'Naruto Shippuden - Figurine Madara Uchiwa by TSUME\r\nL\'échelle 1/4 a permis une sculpture plus fine de l\'armure ainsi que du pelage du Kyubi. Les LEDs incluent dans les yeux de Madara et du Kyubi mettent en valeur leur Sharingan.\r\nTaille : 51 cm', 500, 100, 185),
+(21, 4, 'Empereur Kaido', 'Kaido.jpg', 'figurines', 'Anime One Piece quatre empereurs Kaido PVC Action Figure Modèle 19cm	', 250, 50, 65),
+(24, 1, 'Tanjiro Pikachu version', 'PokeTanjiro.jpg', 'figurines', 'Véritable anime phénomène,  Kimetsu no Yaiba a déboulé dans la vie de nombreux fans de manga et d\'anime sans prévenir. Mais puisque créer des figurines à l\'effigie des personnages de l\'anime était trop simple, la société Game Harbors a souhaité mettre à l\'honneur un crossover un peu particulier : Kimetsu no Yaiba x Pokémon. Tanjiro sous la forme d\'un Pikachu (13cm).', 500, 5, 15),
+(25, 1, 'Nezuko Pikachu version', 'PokeNezuko.jpg', 'figurines', 'Véritable anime phénomène,  Kimetsu no Yaiba a déboulé dans la vie de nombreux fans de manga et d\'anime sans prévenir. Mais puisque créer des figurines à l\'effigie des personnages de l\'anime était trop simple, la société Game Harbors a souhaité mettre à l\'honneur un crossover un peu particulier : Kimetsu no Yaiba x Pokémon. Nezuko sous la forme d\'un Pikachu (13cm).', 500, 5, 15),
+(26, 1, 'Tanjiro et Nezuko Pikachu version', 'PokeTanjiro&Nezuko.jpg', 'figurines', 'Véritable anime phénomène,  Kimetsu no Yaiba a déboulé dans la vie de nombreux fans de manga et d\'anime sans prévenir. Mais puisque créer des figurines à l\'effigie des personnages de l\'anime était trop simple, la société Game Harbors a souhaité mettre à l\'honneur un crossover un peu particulier : Kimetsu no Yaiba x Pokémon. Ainsi, Tanjiro et Nezuko s\'illustrent alors sous la forme d\'un Pikachu (13cm).', 500, 10, 22.5),
+(27, 2, 'GOGETA SSJ BLUE 52CM', 'gogita.png', 'figurines', 'Figurine de Gogeta en Super Saiyan Blue\r\nConçus et peint à la mains, la reproduction est fidèle au personnage de la série Dragon Ball.\r\nLa figurine contient des led.\r\nMatière: Résine haute qualité\r\nDimension: 52cm\r\nÉdition: Édition limitée\r\nÉditeur: Figure Class\r\nPièces: 240pcs', 500, 100, 175);
 
 -- --------------------------------------------------------
 
@@ -81,13 +128,21 @@ CREATE TABLE IF NOT EXISTS `products` (
 DROP TABLE IF EXISTS `streaming`;
 CREATE TABLE IF NOT EXISTS `streaming` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Artworks_Id` int(11) NOT NULL,
   `Caption` varchar(120) NOT NULL,
   `Description` varchar(900) NOT NULL,
   `Video` varchar(120) NOT NULL,
-  `Image` varchar(120) NOT NULL,
   `CreationTimestamp` datetime NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `streaming`
+--
+
+INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Description`, `Video`, `CreationTimestamp`) VALUES
+(1, 1, 'Kimetsu No Yaiba 01 VOSTFR', 'on verra', 'Kimetsu_no_Yaiba 01_VOSTFR.mp4', '2019-12-28 15:17:47'),
+(2, 1, 'Kimetsu No Yaiba 02 VOSTFR', 'plus tard', 'Kimetsu_no_Yaiba 02_VOSTFR.mp4', '2019-12-28 16:26:43');
 
 -- --------------------------------------------------------
 
@@ -109,14 +164,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Role` varchar(11) NOT NULL,
   `CreationTimestamp` datetime NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`Id`, `FirstName`, `LastName`, `Email`, `Pseudo`, `Password`, `Address`, `City`, `Zip`, `Role`, `CreationTimestamp`) VALUES
-(1, 'Abmane', 'Oussoul', 'admin@gmail.com', 'admin', '$2y$11$1cf67a5dea60152ac284fu.dmjXduH4H4JEW7C3vmtO/PI1mx9cAa', '01 avenue nord', 'Paris', '75010', 'admin', '2019-12-26 16:53:31');
+(1, 'Abmane', 'Oussoul', 'admin@gmail.com', 'admin', '$2y$11$1cf67a5dea60152ac284fu.dmjXduH4H4JEW7C3vmtO/PI1mx9cAa', '05 avenue nord', 'Paris', '75010', 'admin', '2019-12-26 16:53:31'),
+(3, 'Kuzumo', 'Power', 'sallukhan0805@gmail.com', 'Omoshiroy', '$2y$11$423b35d4a0d61dbe6c816u.Ja2kSZFDmMAB7EhU53jPBvC0pLB75y', 'chez konoha ', 'Le village de beerus', '68125', 'user', '2019-12-27 17:34:38');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

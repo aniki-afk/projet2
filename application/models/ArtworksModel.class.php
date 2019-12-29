@@ -36,7 +36,8 @@ class ArtworksModel {
     public function search($post)
     {
       $database = new Database();
-      $sql = 'SELECT *
+      $sql = 'SELECT streaming.Id, Caption, Video, CreationTimestamp,
+      artworks.Image, Url
       FROM streaming
       INNER JOIN artworks ON artworks.Id = streaming.Artworks_Id
       WHERE Url LIKE "%"?"%"
