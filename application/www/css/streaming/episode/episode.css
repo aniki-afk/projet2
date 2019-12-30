@@ -1,0 +1,38 @@
+#haut{
+  background: url(../../../ressources/images/tanjiro_nezu.png);
+}
+
+.title-main{
+  background-color: white;
+}
+
+.container{
+  text-align: center;
+  background-color: black;
+  position: relative;
+  top: 26px;
+  padding-bottom: 20px;
+}
+
+.episode{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.title-vid{
+    color: white;
+}
+
+.episode a{
+  padding: 5px;
+}
+
+
+.episode a:hover {
+  background-color: rgba(0,0,0,0.7);
+  color: #fba30d;
+  /* padding: 5px; */
+  transform: scale(1.2);
+}

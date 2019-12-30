@@ -1,5 +1,7 @@
-a<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streaming.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streaming.css">
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streamingStyle.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/episode/episode.css">
+<div class="background"></div>
 <header class="header-main">
   <h1 class="title title-main" style="text-align:center;">Streaming World</h1>
   <div class="ban-top">
@@ -49,7 +51,7 @@ a<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streaming.css">
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
                   <?php foreach ($artworks as $artwork): ?>
-                    <li><a href="<?= $requestUrl ?>/streaming/<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
+                    <li><a href="<?= $requestUrl ?>/streaming/artwork?name=<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
                   <?php endforeach; ?>
                 </ul>
               </div>
@@ -82,22 +84,25 @@ a<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streaming.css">
     </div>
     <div class="top_nav_right">
       <div class="cart box_1">
-        <a href="<?= $requestUrl ?>/basket">
+        <a href="checkout.html">
           <h3> <div class="total">
             <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            <span class="simpleCart_total"></span> (<span id="itemBasket" class="simpleCart_quantity"></span> item(s))</div>
+            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+
           </h3>
         </a>
-        <p><a href="javascript:;" class="empty">Vider votre panier</a></p>
+        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
       </div>
     </div>
   </div>
 </div>
 <main class="container">
-  <ul>
-  <?php foreach ($streamings as $streaming): ?>
-    <li><a href="<?= $requestUrl ?>/streaming/artwork/episode?id=<?= $streaming['Id'] ?>"><?= $streaming['Caption'] ?></a></li>
-  <?php endforeach; ?>
-</ul>
+  <div class="episode">
+    <a href="<?= $requestUrl ?>/streaming/artwork/episode?id=<?= $streamings['Id'] - 1?>"><i class="far fa-arrow-alt-circle-left"></i> Episode précédent</a>
+    <h2 class="title-vid"><?= $streamings['Caption'] ?></h2>
+    <a href="<?= $requestUrl ?>/streaming/artwork/episode?id=<?= $streamings['Id'] + 1?>">Episode suivant <i class="far fa-arrow-alt-circle-right"></i></a>
+  </div>
+  <video src="../../../../vid/<?= $streamings['Video']?> " controls controlsList="nodownload" poster="<?= $wwwUrl ?>/ressources/images/cover/<?= $streamings['Image_Cover'] ?>">
+  </video>
 </main>

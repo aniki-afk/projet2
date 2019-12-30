@@ -49,7 +49,7 @@
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
                   <?php foreach ($artworks as $artwork): ?>
-                    <li><a href="<?= $requestUrl ?>/streaming/<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
+                    <li><a href="<?= $requestUrl ?>/streaming/artwork?name=<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
                   <?php endforeach; ?>
                 </ul>
               </div>
@@ -97,18 +97,14 @@
 <main class="container">
   <form class="search-form" action="<?= $requestUrl ?>/streaming" method="post">
     <input type="search" name="search" placeholder="Recherchez votre film, série, anime...">
-    <input type="submit" name="envoi" value="Envoyer">
+    <button type="submit" name="envoi"><i class="fas fa-search"></i></button>
   </form>
-  <?php if (empty($_POST) === true){ ?>
     <div class="display-vid">
     <?php foreach ($artworks as $artwork): ?>
       <div class="banner-vid">
-        <a href="<?= $requestUrl ?>/streaming/artwork?name=<?= $artwork['Url'] ?>"><img src="<?= $wwwUrl ?>/ressources/images/background/<?= $artwork['Image'] ?>" alt="">
+        <a href="<?= $requestUrl ?>/streaming/artwork?name=<?= $artwork['Url'] ?>"><img src="<?= $wwwUrl ?>/ressources/images/cover/<?= $artwork['Image'] ?>" alt="">
       <p><?= $artwork['Name'] ?></p></a>
     </div>
     <?php endforeach; ?>
   </div>
-  <?php }else{ ?>
-      <p>une oeuvre</p>
-  <?php } ?>
 </main>
