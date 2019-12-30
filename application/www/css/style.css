@@ -244,3 +244,73 @@ ul.second-list li {
   background-color: rgb(53, 53, 53);
   border-radius: 0 15px 0 15px;
 }
+
+/****************************************************************************************/
+/**************************************POP UP********************************************/
+/****************************************************************************************/
+
+.popUp {
+  border: 2px solid #fda30e;
+  border-radius:20px;
+  position: fixed;
+  top: 150px;
+  left: 32%;
+  z-index: 15;
+  background-color: black;
+  text-align: center;
+  padding: 10px 20px;
+  width: 50%;
+}
+
+.popUp .closePopUp {
+  width: 15%;
+  margin: 5px 20px 0 91%;
+  cursor: pointer;
+
+}
+
+.popUp img {
+  margin-top: 30px;
+  width: 40%;
+}
+
+.closePopUp:hover {
+  color: #fda30e;
+}
+
+.popUp button.closePopUp {
+  width: 80%;
+  margin: auto;
+  background-color: #fda30e;
+  color: white;
+  margin-top: 10px;
+  height: 42px;
+  border-radius: 12px;
+  padding-left: 3%;
+  border: none;
+}
+
+.access{
+  background-color: #fda30e;
+  color: white;
+  margin-top: 10px;
+  border-radius: 12px;
+  padding: 10px;
+  display: block;
+}
+
+.popUp p,
+.popUp h4{
+  color: white;
+}
+
+.empty,
+.total{
+  color: white;
+}
+
+
+.empty:hover,
+.total:hover{
+  color: black;
+}

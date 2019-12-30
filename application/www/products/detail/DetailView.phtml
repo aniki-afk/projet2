@@ -85,14 +85,13 @@
     </div>
     <div class="top_nav_right">
       <div class="cart box_1">
-        <a href="checkout.html">
+        <a href="<?= $requestUrl ?>/basket">
           <h3> <div class="total">
             <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-
+            <span class="simpleCart_total"></span> (<span id="itemBasket" class="simpleCart_quantity"></span> item(s))</div>
           </h3>
         </a>
-        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+        <p><a href="javascript:;" class="empty">Vider votre panier</a></p>
 
       </div>
     </div>
@@ -100,20 +99,6 @@
 </div>
 </header>
 <main class="container">
-  <div id="errorPopUp" class="hide popUp">
-      <p id="closePopUpError" class="closePopUp">X</p><p>
-      </p><h4>Impossible !</h4>
-      <p>Si vous ne rentrez pas un chiffre, on ne peut pas compter</p>
-      <img src="<?= $wwwUrl?>/images/products/no.png">
-      <button class="closePopUp">Retour au achat</button>
-  </div>
-  <div id="productPopUp" class="hide popUp">
-      <p id="closePopUpProduct" class="closePopUp">X</p><p>
-      </p><h4>Félicitation !</h4>
-      <p>Vous avez ajouté <em id="productNumber"></em> figurine(s) à votre panier</p>
-      <img src="<?= $wwwUrl?>/images/products/ok.jpg">
-      <button class="closePopUp">Retour au achat</button>
-  </div>
   <a class="comeBack" href="<?= $requestUrl ?>/products"><i class="fas fa-arrow-circle-left"></i></a>
   <div class="productDetail">
     <img src="<?= $wwwUrl?>/ressources/images/products/<?=$product['Photo']?>">

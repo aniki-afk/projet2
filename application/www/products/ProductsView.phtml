@@ -85,14 +85,13 @@
     </div>
     <div class="top_nav_right">
       <div class="cart box_1">
-        <a href="checkout.html">
+        <a href="<?= $requestUrl ?>/basket">
           <h3> <div class="total">
             <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-
+            <span class="simpleCart_total"></span> (<span id="itemBasket" class="simpleCart_quantity"></span> item(s))</div>
           </h3>
         </a>
-        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+        <p><a href="javascript:;" class="empty">Vider votre panier</a></p>
 
       </div>
     </div>
@@ -100,6 +99,7 @@
 </div>
 </header>
 <main class="container">
+  <h2 class="product">Tous nos produits !</h2>
   <ul class="list">
       <?php foreach($products as $product) {?>
           <li class="product-mosaic">
