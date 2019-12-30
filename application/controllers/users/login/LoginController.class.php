@@ -10,7 +10,7 @@ class LoginController
       $artworkModel = new ArtworksModel();
       $artworks = $artworkModel->getAllArtworks();
       return [
-        "artworks"=>$artworks,
+        'artworks'=>$artworks,
         'error'=>$error
       ];
 
@@ -20,10 +20,12 @@ class LoginController
     {
        $userModel = new UserModel();
        $error = $userModel->logUser($_POST);
-
+       $artworkModel = new ArtworksModel();
+       $artworks = $artworkModel->getAllArtworks();
 
        if (array_key_exists('firstName', $_SESSION ) == false) {
          return [
+           'artworks'=>$artworks,
            'error'=>$error
          ];
        }else {

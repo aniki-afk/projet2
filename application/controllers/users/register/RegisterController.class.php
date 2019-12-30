@@ -17,10 +17,15 @@ class RegisterController
     public function httpPostMethod(Http $http, array $formFields)
     {
        $userModel = new UserModel();
+       $artworkModel = new ArtworksModel();
+       $artworks = $artworkModel->getAllArtworks();
 
        $error = $userModel->addUser($_POST);
        if (array_key_exists('role', $_SESSION) === false) {
-         return ['error'=>$error];
+         return [
+           'error'=>$error,
+           "artworks"=>$artworks
+         ];
        }
 
 
