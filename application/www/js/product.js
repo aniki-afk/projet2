@@ -53,3 +53,7 @@ if(window.location.href.indexOf('/sucess') != -1) {
 
   basket.clearBasket();
 }
+
+if(window.location.href.indexOf('/products?product') != -1) {
+  console.log('ok');
+}

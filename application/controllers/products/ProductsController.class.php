@@ -9,9 +9,11 @@ class ProductsController
       $productsModel = new ProductsModel();
       $artworks = $artworkModel->getAllArtworks();
       $products = $productsModel->getAllProducts();
+      $lines = $productsModel->getAllLines();
       return[
         "artworks"=>$artworks,
-        'products'=>$products
+        'products'=>$products,
+        'lines'=>$lines
       ];
 
     }

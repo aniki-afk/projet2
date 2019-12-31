@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/home.css">
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/homeStyle.css">
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/fontHome.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/products/products.css">
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/products/detail/detail.css">
 
 <header class="header-main">
@@ -108,7 +109,7 @@
       <span>Prix Unitaire : <em><?=$product['Price']?> €</em></span>
       <form>
         <input type="text" name="quantity" id="product-<?=$product['Id']?>">
-        <button class="addToBasket" data-name="<?=$product['Name']?>" data-price="<?=$product['Price']?>" data-id="<?=$product['Id']?>"><i class="fas fa-plus-circle"></i></button>
+        <button class="addToBasket" data-name="<?=$product['Name']?>" data-price="<?=$product['Price']?>" data-id="<?=$product['Id']?>"><p>Ajouter au panier</p></button>
       </form>
     </div>
   </div>

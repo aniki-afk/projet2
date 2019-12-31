@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 31 Décembre 2019 à 10:29
+-- Généré le :  Mar 31 Décembre 2019 à 14:16
 -- Version du serveur :  5.7.28-0ubuntu0.16.04.2
 -- Version de PHP :  7.0.33-0ubuntu0.16.04.7
 
@@ -79,6 +79,26 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `productline`
+--
+
+CREATE TABLE `productline` (
+  `ProductLine` varchar(50) COLLATE latin1_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+
+--
+-- Contenu de la table `productline`
+--
+
+INSERT INTO `productline` (`ProductLine`) VALUES
+('accessoires'),
+('blu-ray'),
+('figurines'),
+('tome');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `products`
 --
 
@@ -135,7 +155,8 @@ INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Description`, `Video`,
 (1, 1, 'Kimetsu No Yaiba 01 VOSTFR', 'on verra', 'Kimetsu_no_Yaiba_01_VOSTFR.mp4', '2019-12-28 15:17:47'),
 (2, 1, 'Kimetsu No Yaiba 02 VOSTFR', 'plus tard', 'Kimetsu_no_Yaiba_02_VOSTFR.mp4', '2019-12-28 16:26:43'),
 (4, 7, 'Vinland Saga 24 VOSTFR', 't\'as vu le titre', 'Vinland_Saga_24_VOSTFR.mp4', '2019-12-31 10:28:00'),
-(5, 2, 'DBS Broly', 't\'as vu le titre', 'DBS_FILM_01_Broly_2018_VOSTFR.mp4', '2019-12-31 10:29:13');
+(5, 2, 'DBS Broly', 't\'as vu le titre', 'DBS_FILM_01_Broly_2018_VOSTFR.mp4', '2019-12-31 10:29:13'),
+(6, 1, 'Kimetsu No Yaiba 03 VOSTFR', 'tkt', 'Kimetsu_no_Yaiba_03_VOSTFR.mp4', '2019-12-31 10:37:46');
 
 -- --------------------------------------------------------
 
@@ -182,6 +203,12 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Index pour la table `productline`
+--
+ALTER TABLE `productline`
+  ADD PRIMARY KEY (`ProductLine`);
+
+--
 -- Index pour la table `products`
 --
 ALTER TABLE `products`
@@ -222,7 +249,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT pour la table `streaming`
 --
 ALTER TABLE `streaming`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `users`
 --

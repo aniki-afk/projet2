@@ -100,25 +100,41 @@
 </header>
 <main class="container">
   <h2 class="product">Tous nos produits !</h2>
-  <ul class="list">
+  <div class="search-bar">
+    <form class="search-form" action="<?= $requestUrl ?>/streaming" method="post">
+      <input type="search" name="search" placeholder="Recherchez votre film, série, anime...">
+      <button type="submit" name="envoi"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+  <div class="products">
+    <ul class="list">
       <?php foreach($products as $product) {?>
-          <li class="product-mosaic">
-              <a href="<?= $requestUrl ?>/products/detail?productId=<?=$product['Id']?>">
-                  <div>
-                    <?php if (strlen($product['Name']) >= 20) { ?>
-                      <h3><?=substr($product['Name'], 0, 20)?> ...</h3>
-                    <?php } else{ ?>
-                      <h3><?=$product['Name']?></h3>
-                    <?php } ?>
-                      <img src="<?= $wwwUrl?>/ressources/images/products/<?=$product['Photo']?>">
-                      <p><?=substr($product['Description'], 0, 30)?> ...</p>
-                  </div>
-              </a>
-              <form>
-                <input type="text" name="quantity" id="product-<?=$product['Id']?>">
-                <button class="addToBasket" data-name="<?=$product['Name']?>" data-price="<?=$product['Price']?>" data-id="<?=$product['Id']?>"><i class="fas fa-plus-circle"></i></button>
-              </form>
-          </li>
+        <li class="product-mosaic">
+          <a href="<?= $requestUrl ?>/products/detail?productId=<?=$product['Id']?>">
+            <div>
+              <?php if (strlen($product['Name']) >= 20) { ?>
+                <h3><?=substr($product['Name'], 0, 20)?> ...</h3>
+              <?php } else{ ?>
+                <h3><?=$product['Name']?></h3>
+              <?php } ?>
+              <img src="<?= $wwwUrl?>/ressources/images/products/<?=$product['Photo']?>">
+              <p><?=substr($product['Description'], 0, 30)?> ...</p>
+            </div>
+          </a>
+          <form>
+            <input type="text" name="quantity" id="product-<?=$product['Id']?>">
+            <button class="addToBasket" data-name="<?=$product['Name']?>" data-price="<?=$product['Price']?>" data-id="<?=$product['Id']?>"><p>Ajouter au panier</p></button>
+          </form>
+        </li>
       <?php }?>
-  </ul>
+    </ul>
+    <ul class="lines">
+      <h4>Toutes les catégories:</h4>
+      <?php foreach ($lines as $line) {?>
+        <li class="product-lines">
+          <a href="<?= $requestUrl ?>/products?product=<?=$line['ProductLine']?>"><?= ucfirst($line['ProductLine']) ?>
+          </li>
+        <?php } ?>
+      </ul>
+  </div>
 </main>
