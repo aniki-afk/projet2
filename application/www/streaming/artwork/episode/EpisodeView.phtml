@@ -84,25 +84,23 @@
     </div>
     <div class="top_nav_right">
       <div class="cart box_1">
-        <a href="checkout.html">
+        <a href="<?= $requestUrl ?>/basket">
           <h3> <div class="total">
             <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-
+            <span class="simpleCart_total"></span> (<span id="itemBasket" class="simpleCart_quantity"></span> item(s))</div>
           </h3>
         </a>
-        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+        <p><a href="javascript:;" class="empty">Vider votre panier</a></p>
 
       </div>
-    </div>
   </div>
-</div>
+  </div>
 <main class="container">
   <div class="episode">
     <a href="<?= $requestUrl ?>/streaming/artwork/episode?id=<?= $streamings['Id'] - 1?>"><i class="far fa-arrow-alt-circle-left"></i> Episode précédent</a>
     <h2 class="title-vid"><?= $streamings['Caption'] ?></h2>
     <a href="<?= $requestUrl ?>/streaming/artwork/episode?id=<?= $streamings['Id'] + 1?>">Episode suivant <i class="far fa-arrow-alt-circle-right"></i></a>
   </div>
-  <video src="../../../../vid/<?= $streamings['Video']?> " controls controlsList="nodownload" poster="<?= $wwwUrl ?>/ressources/images/cover/<?= $streamings['Image_Cover'] ?>">
+  <video src="../../../../streaming_vids/<?= $streamings['Video']?> " controls width="854"  height="480" controlsList="nodownload" poster="<?= $wwwUrl ?>/ressources/images/cover/<?= $streamings['Image_Cover'] ?>">
   </video>
 </main>
