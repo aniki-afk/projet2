@@ -6,6 +6,20 @@
   background-color: white;
 }
 
+aside.episode-list {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 15%;
+    margin: 0;
+}
+
+aside.episode-list a {
+    color: white;
+}
+
+aside.episode-list a:hover {
+    color: #fba30d;
+}
+
 .container{
   text-align: center;
   background-color: black;

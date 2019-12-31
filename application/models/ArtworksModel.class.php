@@ -37,13 +37,23 @@ class ArtworksModel {
     public function search($post)
     {
       $database = new Database();
+      $sql = 'SELECT artworks.Id, artworks.Image, Image_Cover, Url, Name
+      FROM artworks
+      WHERE Name LIKE "%"?"%" || Url LIKE "%"?"%"
+      ORDER BY Name';
+      return $database->query($sql, [$post, $post]);
+    }
+
+    public function displayEps($get)
+    {
+      $database = new Database();
       $sql = 'SELECT streaming.Id, Caption,
       artworks.Id AS ArtworkId, artworks.Image, Image_Cover, Url
       FROM streaming
       INNER JOIN artworks ON artworks.Id = streaming.Artworks_Id
       WHERE Url LIKE "%"?"%"
       ORDER BY Caption';
-      return $database->query($sql, [$post]);
+      return $database->query($sql, [$get]);
     }
 
 
@@ -64,19 +74,20 @@ class ArtworksModel {
       artworks.Id AS ArtworkId, artworks.Image, Image_Cover, Url
       FROM streaming
       INNER JOIN artworks ON artworks.Id = streaming.Artworks_Id
-      WHERE Artworks_Id = ?';
+      WHERE Artworks_Id = ?
+      ORDER BY Caption';
       return $database->query($sql, [$id]);
     }
 
-    public function getOneEpisode($id)
+    public function getOneEpisode($id, $art)
     {
       $database = new Database();
-      $sql = 'SELECT streaming.Id, Caption, Video, CreationTimestamp,
+      $sql = 'SELECT streaming.Id, Artworks_Id, Caption, Video, CreationTimestamp,
       artworks.Id AS ArtworkId, artworks.Image, Image_Cover, Url
       FROM streaming
       INNER JOIN artworks ON artworks.Id = streaming.Artworks_Id
-      WHERE streaming.Id = ?';
-      return $database->queryOne($sql, [$id]);
+      WHERE streaming.Id = ? && artworks.Id = ?';
+      return $database->queryOne($sql, [$id, $art]);
     }
 
 

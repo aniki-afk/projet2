@@ -95,8 +95,9 @@
   </div>
 </div>
 <main class="container">
-  <form class="search-form" action="<?= $requestUrl ?>/streaming" method="post">
-    <input type="search" name="search" placeholder="Recherchez votre film, série, anime...">
+  <h2 class="title-section">Tous nos streamings</h2>
+  <form class="search-form" action="<?= $requestUrl ?>/streaming/search" method="post">
+    <input type="search" name="search" id="search" placeholder="Recherchez votre film, série, anime...">
     <button type="submit" name="envoi"><i class="fas fa-search"></i></button>
   </form>
     <div class="display-vid">
@@ -108,3 +109,4 @@
     <?php endforeach; ?>
   </div>
 </main>
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/search.js"></script>

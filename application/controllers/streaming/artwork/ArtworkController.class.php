@@ -7,7 +7,7 @@ class ArtworkController
 
       $artworkModel = new ArtworksModel();
       $artworks = $artworkModel->getAllArtworks();
-      $streamings = $artworkModel->search($_GET['name']);
+      $streamings = $artworkModel->displayEps($_GET['name']);
       return[
         "streamings"=>$streamings,
         "artworks"=>$artworks

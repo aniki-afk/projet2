@@ -15,14 +15,13 @@ class StreamingController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-      // $artworkModel = new ArtworksModel();
-      // $search = $_POST['search'];
-      // var_dump($search);
-      // $http->redirectTo('/streaming');
-      // $streamings = $artworkModel->search($search);
-      // return[
-      //   "streamings"=>$streamings
-      // ];
+      $artworkModel = new ArtworksModel();
+      $search = $_POST['search'];
+      var_dump($search);
+      $streamings = $artworkModel->search($search);
+      return[
+        "streamings"=>$streamings
+      ];
 
 
     }
