@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 30 Décembre 2019 à 16:32
+-- Généré le :  Mar 31 Décembre 2019 à 10:29
 -- Version du serveur :  5.7.28-0ubuntu0.16.04.2
 -- Version de PHP :  7.0.33-0ubuntu0.16.04.7
 
@@ -44,7 +44,8 @@ INSERT INTO `artworks` (`Id`, `Name`, `Url`, `Image`, `Image_Cover`) VALUES
 (3, 'Naruto', 'naruto', 'naruto_cover.gif', 'naruto_cover.png'),
 (4, 'One Piece', 'op', 'op_cover.gif', 'op_cover.jpg'),
 (5, 'My Hero Academia', 'mha', 'mha_cover.gif', 'mha_cover.jpg'),
-(6, 'One Punch Man', 'opm', 'opm_cover.gif', 'opm_cover.jpg');
+(6, 'One Punch Man', 'opm', 'opm_cover.gif', 'opm_cover.jpg'),
+(7, 'Vinland Saga', 'vs', 'vs_cover.gif', 'vs_cover.jpg');
 
 -- --------------------------------------------------------
 
@@ -131,8 +132,10 @@ CREATE TABLE `streaming` (
 --
 
 INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Description`, `Video`, `CreationTimestamp`) VALUES
-(1, 1, 'Kimetsu No Yaiba 01 VOSTFR', 'on verra', 'Kimetsu_no_Yaiba 01_VOSTFR.mp4', '2019-12-28 15:17:47'),
-(2, 1, 'Kimetsu No Yaiba 02 VOSTFR', 'plus tard', 'Kimetsu_no_Yaiba 02_VOSTFR.mp4', '2019-12-28 16:26:43');
+(1, 1, 'Kimetsu No Yaiba 01 VOSTFR', 'on verra', 'Kimetsu_no_Yaiba_01_VOSTFR.mp4', '2019-12-28 15:17:47'),
+(2, 1, 'Kimetsu No Yaiba 02 VOSTFR', 'plus tard', 'Kimetsu_no_Yaiba_02_VOSTFR.mp4', '2019-12-28 16:26:43'),
+(4, 7, 'Vinland Saga 24 VOSTFR', 't\'as vu le titre', 'Vinland_Saga_24_VOSTFR.mp4', '2019-12-31 10:28:00'),
+(5, 2, 'DBS Broly', 't\'as vu le titre', 'DBS_FILM_01_Broly_2018_VOSTFR.mp4', '2019-12-31 10:29:13');
 
 -- --------------------------------------------------------
 
@@ -219,7 +222,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT pour la table `streaming`
 --
 ALTER TABLE `streaming`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `users`
 --

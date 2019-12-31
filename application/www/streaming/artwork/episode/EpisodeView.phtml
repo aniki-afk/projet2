@@ -97,9 +97,9 @@
   </div>
 <main class="container">
   <div class="episode">
-    <a href="<?= $requestUrl ?>/streaming/artwork/episode?id=<?= $streamings['Id'] - 1?>"><i class="far fa-arrow-alt-circle-left"></i> Episode précédent</a>
+    <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&id=<?= $streamings['Id'] -1?>"><i class="far fa-arrow-alt-circle-left"></i> Episode précédent</a>
     <h2 class="title-vid"><?= $streamings['Caption'] ?></h2>
-    <a href="<?= $requestUrl ?>/streaming/artwork/episode?id=<?= $streamings['Id'] + 1?>">Episode suivant <i class="far fa-arrow-alt-circle-right"></i></a>
+    <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&id=<?= $streamings['Id'] +1?>">Episode suivant <i class="far fa-arrow-alt-circle-right"></i></a>
   </div>
   <video src="../../../../streaming_vids/<?= $streamings['Video']?> " controls width="854"  height="480" controlsList="nodownload" poster="<?= $wwwUrl ?>/ressources/images/cover/<?= $streamings['Image_Cover'] ?>">
   </video>

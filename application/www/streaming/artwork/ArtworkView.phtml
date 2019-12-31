@@ -97,7 +97,7 @@
 <main class="container">
   <ul>
   <?php foreach ($streamings as $streaming): ?>
-    <li><a href="<?= $requestUrl ?>/streaming/artwork/episode?id=<?= $streaming['Id'] ?>"><?= $streaming['Caption'] ?></a></li>
+    <li><a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streaming['ArtworkId'] ?>&id=<?= $streaming['Id'] ?>"><?= $streaming['Caption'] ?></a></li>
   <?php endforeach; ?>
 </ul>
 </main>

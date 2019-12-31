@@ -8,9 +8,11 @@ class EpisodeController
       $artworkModel = new ArtworksModel();
       $streamings= $artworkModel->getOneEpisode($_GET['id']);
       $artworks = $artworkModel->getAllArtworks();
+      $episodes = $artworkModel->getAllEpisodesByArtworksId($_GET['artworkId']);
 
       var_dump($streamings);
       return[
+        "episodes"=>$episodes,
         "streamings"=>$streamings,
         "artworks"=>$artworks
       ];
