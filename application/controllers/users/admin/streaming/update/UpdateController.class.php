@@ -9,17 +9,14 @@ class UpdateController
          $http->redirectTo('/');
        }
        $artworkModel = new ArtworksModel();
-       $productsModel = new ProductsModel();
+       $streaming = $artworkModel->getOneEpisode($_GET['streamingId'], $_GET['artworkId']);
        $artworks = $artworkModel->getAllArtworks();
-       $lines = $productsModel->getAllLines();
-       $product = $productsModel->getOneProduct();
 
 
        // var_dump($figurines);
         return [
-                 'product'=>$product,
-                 "artworks"=>$artworks,
-                 'lines'=>$lines
+                 "streaming"=>$streaming,
+                 "artworks"=>$artworks
                ];
 
     }
@@ -27,14 +24,12 @@ class UpdateController
     public function httpPostMethod(Http $http, array $formFields)
     {
        $artworkModel = new ArtworksModel();
-       $productsModel = new ProductsModel();
        $artworks = $artworkModel->getAllArtworks();
-       $lines = $productsModel->getAllLines();
-       $productsModel->updateProduct($_POST, $_FILES);
+       $streaming = $artworkModel->getOneEpisode($_POST['vidId'], $_POST['artworkId']);
+       $artworkModel->updateVideo($_POST, $_FILES);
        return [
-                 'product'=>$product,
+                 '$streaming'=>$streaming,
                  "artworks"=>$artworks,
-                 'lines'=>$lines
                ];
 
 

@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streaming.css">
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streamingStyle.css">
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/episode/episode.css">
-<div class="background"></div>
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/home.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/homeStyle.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/fontHome.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/users/admin.css">
 <header class="header-main">
   <h1 class="title title-main" style="text-align:center;">Streaming World</h1>
   <div class="ban-top">
@@ -95,28 +95,22 @@
         </div>
       </div>
     </div>
-    <aside class="episode-list">
-      <ul>
-        <?php foreach ($episodes as $episode): ?>
-          <li><a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $episode['ArtworkId'] ?>&status=<?= $episode['Status']?>"><?= $episode['Caption'] ?></a></li>
-        <?php endforeach; ?>
-      </ul>
-    </aside>
-    <main class="container">
-      <div class="episode">
-        <?php if ($status - 1 === 0){ ?>
+  </div>
 
-        <?php }else{ ?>
-          <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $status-1?>"><i class="far fa-arrow-alt-circle-left"></i> Episode précédent</a>
-        <?php } ?>
-        <h2 class="title-vid"><?= $streamings['Caption'] ?></h2>
-        <?php if (($status + 1) > count($episodes)){ ?>
+  <main class="container">
 
-        <?php }else{ ?>
-          <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $status+1?>">Episode suivant <i class="far fa-arrow-alt-circle-right"></i></a>
-        <?php } ?>
-      </div>
-      <video src="../../../../streaming_vids/<?= $streamings['Video']?> " controls width="854"  height="480" controlsList="nodownload" poster="<?= $wwwUrl ?>/ressources/images/cover/<?= $streamings['Image_Cover'] ?>">
-      </video>
-    </main>
-    <script type="text/javascript" src="<?= $wwwUrl ?>/js/episode.js"></script>
+    <h3>Modifiez la video !</h3>
+
+    <a class="comeBack" href="<?= $requestUrl ?>/users/admin/streaming"><i class="fas fa-arrow-circle-left"></i></a>
+
+    <form class="b-form" action="<?= $requestUrl ?>/users/admin/streaming/update" method="POST" enctype="multipart/form-data">
+      <input type="text" name="caption" placeholder="<?= $streaming['Caption'] ?>" value="<?= $streaming['Caption'] ?>">
+      <input type="file" name="vid_pics">
+      <input type="text" name="artworksId" placeholder="<?= $streaming['Artworks_Id'] ?>" value="<?= $streaming['Artworks_Id'] ?>">
+      <textarea type="text" name="description" maxlength="1000"><?= $streaming['Description'] ?></textarea>
+      <input type="text" name="status" placeholder="<?= $streaming['Status'] ?>" value="<?= $streaming['Status'] ?>">
+      <input type="hidden" name="vidId" value="<?=$streaming['Id']?>">
+      <input type="hidden" name="artworkId" value="<?=$streaming['Artworks_Id']?>">
+      <input type="submit" name="Enregister">
+    </form>
+  </main>

@@ -1,6 +1,6 @@
 <?php
 
-class UpdateController
+class AddController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
@@ -9,17 +9,12 @@ class UpdateController
          $http->redirectTo('/');
        }
        $artworkModel = new ArtworksModel();
-       $productsModel = new ProductsModel();
        $artworks = $artworkModel->getAllArtworks();
-       $lines = $productsModel->getAllLines();
-       $product = $productsModel->getOneProduct();
 
 
        // var_dump($figurines);
         return [
-                 'product'=>$product,
-                 "artworks"=>$artworks,
-                 'lines'=>$lines
+                 "artworks"=>$artworks
                ];
 
     }
@@ -27,14 +22,13 @@ class UpdateController
     public function httpPostMethod(Http $http, array $formFields)
     {
        $artworkModel = new ArtworksModel();
-       $productsModel = new ProductsModel();
        $artworks = $artworkModel->getAllArtworks();
-       $lines = $productsModel->getAllLines();
-       $productsModel->updateProduct($_POST, $_FILES);
+       $artworkModel->addVideo($_POST, $_FILES);
+
+       var_dump($_POST);
+       var_dump($_FILES);
        return [
-                 'product'=>$product,
                  "artworks"=>$artworks,
-                 'lines'=>$lines
                ];
 
 
