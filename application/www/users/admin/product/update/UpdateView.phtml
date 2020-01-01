@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streaming.css">
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/streamingStyle.css">
-<link rel="stylesheet" href="<?= $wwwUrl ?>/css/streaming/episode/episode.css">
-<div class="background"></div>
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/home.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/homeStyle.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home/fontHome.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/users/admin.css">
 <header class="header-main">
   <h1 class="title title-main" style="text-align:center;">Streaming World</h1>
   <div class="ban-top">
@@ -95,28 +95,29 @@
         </div>
       </div>
     </div>
-    <aside class="episode-list">
-      <ul>
-        <?php foreach ($episodes as $episode): ?>
-          <li><a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $episode['ArtworkId'] ?>&id=<?= $episode['Id'] ?>"><?= $episode['Caption'] ?></a></li>
+  </div>
+
+  <main class="container">
+
+    <h3>Ajoutez un nouveau produit !</h3>
+
+    <a class="comeBack" href="<?= $requestUrl ?>/users/admin/product"><i class="fas fa-arrow-circle-left"></i></a>
+
+    <form class="b-form" action="<?= $requestUrl ?>/users/admin/product/update" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="<?= $product['Name'] ?>" value="<?= $product['Name'] ?>">
+      <input type="file" name="product_pics">
+      <input type="text" name="artworksId" placeholder="<?= $product['Artworks_Id'] ?>" value="<?= $product['Artworks_Id'] ?>">
+      <select type="text" name="productline">
+        <option value="<?= $product['ProductLine'] ?>" selected><?= $product['ProductLine'] ?></option>
+        <?php foreach ($lines as $line): ?>
+          <option value="<?= $line['ProductLine'] ?>"><?= $line['ProductLine'] ?></option>
         <?php endforeach; ?>
-      </ul>
-    </aside>
-    <main class="container">
-      <div class="episode">
-        <?php if ($status - 1 === 0){ ?>
-
-        <?php }else{ ?>
-          <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $status-1?>"><i class="far fa-arrow-alt-circle-left"></i> Episode précédent</a>
-        <?php } ?>
-        <h2 class="title-vid"><?= $streamings['Caption'] ?></h2>
-        <?php if (($status + 1) > count($episodes)){ ?>
-
-        <?php }else{ ?>
-          <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $status+1?>">Episode suivant <i class="far fa-arrow-alt-circle-right"></i></a>
-        <?php } ?>
-      </div>
-      <video src="../../../../streaming_vids/<?= $streamings['Video']?> " controls width="854"  height="480" controlsList="nodownload" poster="<?= $wwwUrl ?>/ressources/images/cover/<?= $streamings['Image_Cover'] ?>">
-      </video>
-    </main>
-    <script type="text/javascript" src="<?= $wwwUrl ?>/js/episode.js"></script>
+      </select>
+      <textarea type="text" name="description" maxlength="1000"><?= $product['Description'] ?></textarea>
+      <input type="text" name="quantity" placeholder="<?= $product['QuantityInStock'] ?>" value="<?= $product['QuantityInStock'] ?>">
+      <input type="text" name="buyPrice" placeholder="<?= $product['BuyPrice'] ?>" value="<?= $product['BuyPrice'] ?>">
+      <input type="text" name="price" placeholder="<?= $product['Price'] ?>" value="<?= $product['Price'] ?>">
+      <input type="hidden" name="productId" value="<?=$product['Id']?>">
+      <input type="submit" name="Enregister">
+    </form>
+  </main>

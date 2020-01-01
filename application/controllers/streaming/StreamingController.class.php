@@ -17,7 +17,7 @@ class StreamingController
     {
       $artworkModel = new ArtworksModel();
       $search = $_POST['search'];
-      var_dump($search);
+      // var_dump($search);
       $streamings = $artworkModel->search($search);
       return[
         "streamings"=>$streamings

@@ -47,7 +47,7 @@ class ArtworksModel {
     public function displayEps($get)
     {
       $database = new Database();
-      $sql = 'SELECT streaming.Id, Caption,
+      $sql = 'SELECT streaming.Id, Caption, Status,
       artworks.Id AS ArtworkId, artworks.Image, Image_Cover, Url
       FROM streaming
       INNER JOIN artworks ON artworks.Id = streaming.Artworks_Id
@@ -70,7 +70,7 @@ class ArtworksModel {
     public function getAllEpisodesByArtworksId($id)
     {
       $database = new Database();
-      $sql = 'SELECT streaming.Id, Artworks_Id, Caption, Video, CreationTimestamp,
+      $sql = 'SELECT streaming.Id, Status, Artworks_Id, Caption, Video, CreationTimestamp,
       artworks.Id AS ArtworkId, artworks.Image, Image_Cover, Url
       FROM streaming
       INNER JOIN artworks ON artworks.Id = streaming.Artworks_Id
@@ -79,15 +79,15 @@ class ArtworksModel {
       return $database->query($sql, [$id]);
     }
 
-    public function getOneEpisode($id, $art)
+    public function getOneEpisode($status, $art)
     {
       $database = new Database();
-      $sql = 'SELECT streaming.Id, Artworks_Id, Caption, Video, CreationTimestamp,
+      $sql = 'SELECT streaming.Id, Status, Artworks_Id, Caption, Video, CreationTimestamp,
       artworks.Id AS ArtworkId, artworks.Image, Image_Cover, Url
       FROM streaming
       INNER JOIN artworks ON artworks.Id = streaming.Artworks_Id
-      WHERE streaming.Id = ? && artworks.Id = ?';
-      return $database->queryOne($sql, [$id, $art]);
+      WHERE Status = ? && artworks.Id = ?';
+      return $database->queryOne($sql, [$status, $art]);
     }
 
 

@@ -18,7 +18,7 @@ class SearchController
       $artworkModel = new ArtworksModel();
       $artworks = $artworkModel->getAllArtworks();
       $search = $_POST['search'];
-      var_dump($search);
+      // var_dump($search);
       $streamings = $artworkModel->search($search);
       // var_dump($streamings);
       return[

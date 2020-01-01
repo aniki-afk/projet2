@@ -6,13 +6,15 @@ class EpisodeController
     {
 
       $artworkModel = new ArtworksModel();
-      $streamings= $artworkModel->getOneEpisode($_GET['id'], $_GET['artworkId']);
+      $streamings= $artworkModel->getOneEpisode($_GET['status'], $_GET['artworkId']);
       $artworks = $artworkModel->getAllArtworks();
       $episodes = $artworkModel->getAllEpisodesByArtworksId($_GET['artworkId']);
-
-      var_dump($streamings);
-      var_dump($episodes);
+      $status = $streamings['Status'];
+      // var_dump($status);
+      // var_dump($streamings);
+      // var_dump($episodes);
       return[
+        'status'=>$status,
         "streamings"=>$streamings,
         "artworks"=>$artworks,
         "episodes"=>$episodes

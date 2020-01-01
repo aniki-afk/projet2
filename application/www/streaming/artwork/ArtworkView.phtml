@@ -49,7 +49,7 @@
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
                   <?php foreach ($artworks as $artwork): ?>
-                    <li><a href="<?= $requestUrl ?>/streaming/<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
+                    <li><a href="<?= $requestUrl ?>/streaming/artwork?name=<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
                   <?php endforeach; ?>
                 </ul>
               </div>
@@ -97,7 +97,7 @@
 <main class="container">
   <ul>
   <?php foreach ($streamings as $streaming): ?>
-    <li><a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streaming['ArtworkId'] ?>&id=<?= $streaming['Id'] ?>"><?= $streaming['Caption'] ?></a></li>
+    <li><a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streaming['ArtworkId'] ?>&status=<?= $streaming['Status'] ?>"><?= $streaming['Caption'] ?></a></li>
   <?php endforeach; ?>
 </ul>
 </main>
