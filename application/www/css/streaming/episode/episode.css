@@ -37,6 +37,8 @@ aside.episode-list a:hover {
 
 .title-vid{
     color: white;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .episode a{

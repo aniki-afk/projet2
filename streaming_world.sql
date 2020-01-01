@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 01 jan. 2020 à 13:37
+-- Généré le :  mer. 01 jan. 2020 à 16:20
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `BuyPrice` double NOT NULL,
   `Price` double NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `products`
@@ -160,18 +160,41 @@ CREATE TABLE IF NOT EXISTS `streaming` (
   `Video` varchar(120) NOT NULL,
   `CreationTimestamp` datetime NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `streaming`
 --
 
 INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Status`, `Description`, `Video`, `CreationTimestamp`) VALUES
-(1, 1, 'Kimetsu No Yaiba 01 VOSTFR', 1, 'on verra', 'Kimetsu_no_Yaiba_01_VOSTFR.mp4', '2019-12-28 15:17:47'),
-(2, 1, 'Kimetsu No Yaiba 02 VOSTFR', 2, 'plus tard', 'Kimetsu_no_Yaiba_02_VOSTFR.mp4', '2019-12-28 16:26:43'),
+(1, 1, 'Kimetsu No Yaiba 01 VOSTFR', 1, 'Regardez le nouvel anime far de la decennie', 'Kimetsu_no_Yaiba_01_VOSTFR.mp4', '2019-12-28 15:17:47'),
+(2, 1, 'Kimetsu No Yaiba 02 VOSTFR', 2, 'Continuez avec l\'episode 2 !!', 'Kimetsu_no_Yaiba_02_VOSTFR.mp4', '2019-12-28 16:26:43'),
 (4, 7, 'Vinland Saga 24 VOSTFR', 24, 't\'as vu le titre', 'Vinland_Saga_24_VOSTFR.mp4', '2019-12-31 10:28:00'),
 (5, 2, 'DBS Broly', 1, 't\'as vu le titre', 'DBS_FILM_01_Broly_2018_VOSTFR.mp4', '2019-12-31 10:29:13'),
-(6, 1, 'Kimetsu No Yaiba 03 VOSTFR', 3, 'tkt', 'Kimetsu_no_Yaiba_03_VOSTFR.mp4', '2019-12-31 10:37:46');
+(6, 1, 'Kimetsu No Yaiba 03 VOSTFR', 3, 'tkt', 'Kimetsu_no_Yaiba_03_VOSTFR.mp4', '2019-12-31 10:37:46'),
+(8, 1, 'Kimetsu No Yaiba 04 VOSTFR', 4, 'ep 4', 'Kimetsu_no_Yaiba_04_VOSTFR.mp4', '2020-01-01 17:00:07'),
+(9, 1, 'Kimetsu No Yaiba 05 VOSTFR', 5, 'ep 5', 'Kimetsu_no_Yaiba_05_VOSTFR.mp4', '2020-01-01 17:00:31'),
+(10, 1, 'Kimetsu No Yaiba 06 VOSTFR', 6, 'ep 4', 'Kimetsu_no_Yaiba_06_VOSTFR.mp4', '2020-01-01 17:00:46'),
+(11, 1, 'Kimetsu No Yaiba 07 VOSTFR', 7, 'ep 4', 'Kimetsu_no_Yaiba_07_VOSTFR.mp4', '2020-01-01 17:01:01'),
+(12, 1, 'Kimetsu No Yaiba 08 VOSTFR', 8, 'ep 8', 'Kimetsu_no_Yaiba_08_VOSTFR.mp4', '2020-01-01 17:01:25'),
+(13, 1, 'Kimetsu No Yaiba 09 VOSTFR', 9, 'tkt', 'Kimetsu_no_Yaiba_09_VOSTFR.mp4', '2019-12-31 10:37:46'),
+(14, 1, 'Kimetsu No Yaiba 10 VOSTFR', 10, 'ep 4', 'Kimetsu_no_Yaiba_10_VOSTFR.mp4', '2020-01-01 17:00:07'),
+(15, 1, 'Kimetsu No Yaiba 11 VOSTFR', 11, 'ep 5', 'Kimetsu_no_Yaiba_11_VOSTFR.mp4', '2020-01-01 17:00:31'),
+(16, 1, 'Kimetsu No Yaiba 12 VOSTFR', 12, 'ep 4', 'Kimetsu_no_Yaiba_12_VOSTFR.mp4', '2020-01-01 17:00:46'),
+(17, 1, 'Kimetsu No Yaiba 13 VOSTFR', 13, 'ep 4', 'Kimetsu_no_Yaiba_13_VOSTFR.mp4', '2020-01-01 17:01:01'),
+(18, 1, 'Kimetsu No Yaiba 14 VOSTFR', 14, 'ep 8', 'Kimetsu_no_Yaiba_14_VOSTFR.mp4', '2020-01-01 17:01:25'),
+(19, 1, 'Kimetsu No Yaiba 15 VOSTFR', 15, 'Regardez le nouvel anime far de la decennie', 'Kimetsu_no_Yaiba_15_VOSTFR.mp4', '2019-12-28 15:17:47'),
+(20, 1, 'Kimetsu No Yaiba 16 VOSTFR', 16, 'Continuez avec l\'episode 2 !!', 'Kimetsu_no_Yaiba_16_VOSTFR.mp4', '2019-12-28 16:26:43'),
+(21, 1, 'Kimetsu No Yaiba 17 VOSTFR', 17, 'tkt', 'Kimetsu_no_Yaiba_17_VOSTFR.mp4', '2019-12-31 10:37:46'),
+(22, 1, 'Kimetsu No Yaiba 18 VOSTFR', 18, 'ep 4', 'Kimetsu_no_Yaiba_18_VOSTFR.mp4', '2020-01-01 17:00:07'),
+(23, 1, 'Kimetsu No Yaiba 19 VOSTFR', 19, 'ep 5', 'Kimetsu_no_Yaiba_19_VOSTFR.mp4', '2020-01-01 17:00:31'),
+(24, 1, 'Kimetsu No Yaiba 20 VOSTFR', 20, 'ep 4', 'Kimetsu_no_Yaiba_20_VOSTFR.mp4', '2020-01-01 17:00:46'),
+(25, 1, 'Kimetsu No Yaiba 21 VOSTFR', 21, 'ep 4', 'Kimetsu_no_Yaiba_21_VOSTFR.mp4', '2020-01-01 17:01:01'),
+(26, 1, 'Kimetsu No Yaiba 22 VOSTFR', 22, 'ep 8', 'Kimetsu_no_Yaiba_22_VOSTFR.mp4', '2020-01-01 17:01:25'),
+(27, 1, 'Kimetsu No Yaiba 23 VOSTFR', 23, 'tkt', 'Kimetsu_no_Yaiba_23_VOSTFR.mp4', '2019-12-31 10:37:46'),
+(28, 1, 'Kimetsu No Yaiba 24 VOSTFR', 24, 'ep 4', 'Kimetsu_no_Yaiba_24_VOSTFR.mp4', '2020-01-01 17:00:07'),
+(29, 1, 'Kimetsu No Yaiba 25 VOSTFR', 25, 'ep 5', 'Kimetsu_no_Yaiba_25_VOSTFR.mp4', '2020-01-01 17:00:31'),
+(30, 1, 'Kimetsu No Yaiba 26 VOSTFR', 26, 'ep 4', 'Kimetsu_no_Yaiba_26_VOSTFR.mp4', '2020-01-01 17:00:46');
 
 -- --------------------------------------------------------
 
