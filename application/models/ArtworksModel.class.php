@@ -132,7 +132,7 @@ class ArtworksModel {
         $post['status']
       ]);
       $http = new HTTP();
-      $http->moveUploadedFile("vid_pics", "../../../streaming_vids");
+      $http->moveUploadedFile("vid_pics", "/../../../streaming_vids");
       $http->redirectTo("/users/admin");
       exit();
     }

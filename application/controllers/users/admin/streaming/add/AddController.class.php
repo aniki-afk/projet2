@@ -25,8 +25,8 @@ class AddController
        $artworks = $artworkModel->getAllArtworks();
        $artworkModel->addVideo($_POST, $_FILES);
 
-       var_dump($_POST);
-       var_dump($_FILES);
+       // var_dump($_POST);
+       // var_dump($_FILES);
        return [
                  "artworks"=>$artworks,
                ];
