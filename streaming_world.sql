@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 01 jan. 2020 à 16:20
+-- Généré le :  jeu. 02 jan. 2020 à 16:13
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `artworks` (
   `Image` varchar(120) NOT NULL,
   `Image_Cover` varchar(150) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `artworks`
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `streaming` (
   `Video` varchar(120) NOT NULL,
   `CreationTimestamp` datetime NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `streaming`
@@ -171,7 +171,7 @@ INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Status`, `Description`
 (2, 1, 'Kimetsu No Yaiba 02 VOSTFR', 2, 'Continuez avec l\'episode 2 !!', 'Kimetsu_no_Yaiba_02_VOSTFR.mp4', '2019-12-28 16:26:43'),
 (4, 7, 'Vinland Saga 24 VOSTFR', 24, 't\'as vu le titre', 'Vinland_Saga_24_VOSTFR.mp4', '2019-12-31 10:28:00'),
 (5, 2, 'DBS Broly', 1, 't\'as vu le titre', 'DBS_FILM_01_Broly_2018_VOSTFR.mp4', '2019-12-31 10:29:13'),
-(6, 1, 'Kimetsu No Yaiba 03 VOSTFR', 3, 'tkt', 'Kimetsu_no_Yaiba_03_VOSTFR.mp4', '2019-12-31 10:37:46'),
+(6, 1, 'Kimetsu No Yaiba 03 VOSTFR', 3, 'ep kny 03', 'Kimetsu_no_Yaiba_03_VOSTFR.mp4', '2019-12-31 10:37:46'),
 (8, 1, 'Kimetsu No Yaiba 04 VOSTFR', 4, 'ep 4', 'Kimetsu_no_Yaiba_04_VOSTFR.mp4', '2020-01-01 17:00:07'),
 (9, 1, 'Kimetsu No Yaiba 05 VOSTFR', 5, 'ep 5', 'Kimetsu_no_Yaiba_05_VOSTFR.mp4', '2020-01-01 17:00:31'),
 (10, 1, 'Kimetsu No Yaiba 06 VOSTFR', 6, 'ep 4', 'Kimetsu_no_Yaiba_06_VOSTFR.mp4', '2020-01-01 17:00:46'),
@@ -194,7 +194,26 @@ INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Status`, `Description`
 (27, 1, 'Kimetsu No Yaiba 23 VOSTFR', 23, 'tkt', 'Kimetsu_no_Yaiba_23_VOSTFR.mp4', '2019-12-31 10:37:46'),
 (28, 1, 'Kimetsu No Yaiba 24 VOSTFR', 24, 'ep 4', 'Kimetsu_no_Yaiba_24_VOSTFR.mp4', '2020-01-01 17:00:07'),
 (29, 1, 'Kimetsu No Yaiba 25 VOSTFR', 25, 'ep 5', 'Kimetsu_no_Yaiba_25_VOSTFR.mp4', '2020-01-01 17:00:31'),
-(30, 1, 'Kimetsu No Yaiba 26 VOSTFR', 26, 'ep 4', 'Kimetsu_no_Yaiba_26_VOSTFR.mp4', '2020-01-01 17:00:46');
+(30, 1, 'Kimetsu No Yaiba 26 VOSTFR', 26, 'ep 4', 'Kimetsu_no_Yaiba_26_VOSTFR.mp4', '2020-01-01 17:00:46'),
+(31, 7, 'Vinland Saga 01 VOSTFR', 1, 'ep 1', 'Vinland_Saga_01_VOSTFR.mp4', '2020-01-02 14:52:03'),
+(32, 7, 'Vinland Saga 02 VOSTFR', 2, 'ep 2', 'Vinland_Saga_02_VOSTFR.mp4', '2020-01-02 14:53:18'),
+(33, 7, 'Vinland Saga 03 VOSTFR', 3, 'ep 3', 'Vinland_Saga_03_VOSTFR.mp4', '2020-01-02 14:54:15'),
+(34, 7, 'Vinland Saga 04 VOSTFR', 4, 'ep 4', 'Vinland_Saga_04_VOSTFR.mp4', '2020-01-02 14:55:17'),
+(35, 7, 'Vinland Saga 05 VOSTFR', 5, 'ep 5', 'Vinland_Saga_05_VOSTFR.mp4', '2020-01-02 14:56:12'),
+(36, 7, 'Vinland Saga 06 VOSTFR', 6, 'ep 6', 'Vinland_Saga_06_VOSTFR.mp4', '2020-01-02 14:57:53'),
+(37, 7, 'Vinland Saga 07 VOSTFR', 7, 'ep 7', 'Vinland_Saga_07_VOSTFR.mp4', '2020-01-02 14:58:42'),
+(38, 7, 'Vinland Saga 08 VOSTFR', 8, 'ep 8', 'Vinland_Saga_08_VOSTFR.mp4', '2020-01-02 14:59:56'),
+(39, 7, 'Vinland Saga 09 VOSTFR', 9, 'ep 9', 'Vinland_Saga_09_VOSTFR.mp4', '2020-01-02 15:00:58'),
+(40, 7, 'Vinland Saga 10 VOSTFR', 10, 'ep 10', 'Vinland_Saga_10_VOSTFR.mp4', '2020-01-02 15:01:56'),
+(41, 7, 'Vinland Saga 11 VOSTFR', 11, 'ep 11', 'Vinland_Saga_11_VOSTFR.mp4', '2020-01-02 15:02:55'),
+(42, 7, 'Vinland Saga 12 VOSTFR', 12, 'ep 12', 'Vinland_Saga_12_VOSTFR.mp4', '2020-01-02 15:03:44'),
+(43, 7, 'Vinland Saga 13 VOSTFR', 13, 'ep 13', 'Vinland_Saga_13_VOSTFR.mp4', '2020-01-02 15:04:32'),
+(44, 7, 'Vinland Saga 14 VOSTFR', 14, 'ep 14', 'Vinland_Saga_14_VOSTFR.mp4', '2020-01-02 15:05:24'),
+(45, 7, 'Vinland Saga 15 VOSTFR', 15, 'ep 15', 'Vinland_Saga_15_VOSTFR.mp4', '2020-01-02 15:06:12'),
+(46, 7, 'Vinland Saga 16 VOSTFR', 16, 'ep 16', 'Vinland_Saga_16_VOSTFR.mp4', '2020-01-02 15:06:57'),
+(47, 7, 'Vinland Saga 17 VOSTFR', 17, 'ep 17', 'Vinland_Saga_17_VOSTFR.mp4', '2020-01-02 15:08:00'),
+(48, 7, 'Vinland Saga 18 VOSTFR', 18, 'ep 18', 'Vinland_Saga_18_VOSTFR.mp4', '2020-01-02 15:08:53'),
+(49, 7, 'Vinland Saga 19 VOSTFR', 19, 'ep 19', 'Vinland_Saga_19_VOSTFR.mp4', '2020-01-02 15:09:42');
 
 -- --------------------------------------------------------
 

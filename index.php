@@ -19,10 +19,10 @@ define('CFG_PATH', realpath(ROOT_PATH.'/application/config'));
  ini_set('post_max_size', '1000M');
  ini_set('max_input_time', 3000);
  ini_set('max_execution_time', 3000);
- 
+
 define('WWW_PATH', realpath(ROOT_PATH.'/application/www'));
 
-
+require_once 'vendor/autoload.php';
 require_once 'library/Configuration.class.php';
 require_once 'library/Database.class.php';
 require_once 'library/FlashBag.class.php';

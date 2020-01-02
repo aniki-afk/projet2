@@ -8,6 +8,7 @@ class StreamingController
       $artworkModel = new ArtworksModel();
       $artworks = $artworkModel->getAllArtworks();
       $streamings = $artworkModel->getAllEpisodes();
+      // var_dump($streamings);
       return[
         "streamings"=>$streamings,
         "artworks"=>$artworks

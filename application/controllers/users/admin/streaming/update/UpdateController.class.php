@@ -9,7 +9,8 @@ class UpdateController
          $http->redirectTo('/');
        }
        $artworkModel = new ArtworksModel();
-       $streaming = $artworkModel->getOneEpisode($_GET['streamingId'], $_GET['artworkId']);
+       $streaming = $artworkModel->getOneEpisodeByArtworkId($_GET['streamingId'], $_GET['artworkId']);
+       // var_dump($streaming);
        $artworks = $artworkModel->getAllArtworks();
 
 
@@ -25,7 +26,6 @@ class UpdateController
     {
        $artworkModel = new ArtworksModel();
        $artworks = $artworkModel->getAllArtworks();
-       $streaming = $artworkModel->getOneEpisode($_POST['vidId'], $_POST['artworkId']);
        $artworkModel->updateVideo($_POST, $_FILES);
        return [
                  '$streaming'=>$streaming,
