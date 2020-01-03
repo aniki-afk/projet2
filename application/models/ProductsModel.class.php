@@ -12,7 +12,7 @@ class ProductsModel {
 
   }
 
-  public function getOneProduct()
+  public function getOneProduct($id)
   {
     $database = new Database();
     $sql =
@@ -20,7 +20,7 @@ class ProductsModel {
     FROM products
     WHERE Id = ?';
     // var_dump($database);
-    return $database->queryOne($sql, [$_GET['productId']]);
+    return $database->queryOne($sql, [$id]);
   }
 
   public function getAllLines()

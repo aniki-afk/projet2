@@ -13,17 +13,22 @@ class PaymentController
        if(empty($_SESSION) == true || $_SESSION['role'] !== "admin" ) {
          $http->redirectTo('/');
        }
+       $artworkModel = new ArtworksModel();
+       $artworks = $artworkModel->getAllArtworks();
+       return[
+         "artworks"=>$artworks
+       ];
+
 
     }
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-    	/*
-    	 * Méthode appelée en cas de requête HTTP POST
-    	 *
-    	 * L'argument $http est un objet permettant de faire des redirections etc.
-    	 * L'argument $formFields contient l'équivalent de $_POST en PHP natif.
-    	 */
+      $artworkModel = new ArtworksModel();
+      $artworks = $artworkModel->getAllArtworks();
+      return[
+        "artworks"=>$artworks
+      ];
 
 
 

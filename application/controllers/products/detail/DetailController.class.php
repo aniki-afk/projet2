@@ -8,7 +8,7 @@ class DetailController
       $artworkModel = new ArtworksModel();
       $productsModel = new ProductsModel();
       $artworks = $artworkModel->getAllArtworks();
-      $product = $productsModel->getOneProduct();
+      $product = $productsModel->getOneProduct($_GET['productId']);
       return[
         "artworks"=>$artworks,
         "product"=>$product

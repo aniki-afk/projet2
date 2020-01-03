@@ -4,12 +4,6 @@ class ChargeController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-    	/*
-    	 * Méthode appelée en cas de requête HTTP GET
-    	 *
-    	 * L'argument $http est un objet permettant de faire des redirections etc.
-    	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
-    	 */
        if(empty($_SESSION) == true) {
          $http->redirectTo('/');
        }
@@ -19,12 +13,6 @@ class ChargeController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-    	/*
-    	 * Méthode appelée en cas de requête HTTP POST
-    	 *
-    	 * L'argument $http est un objet permettant de faire des redirections etc.
-    	 * L'argument $formFields contient l'équivalent de $_POST en PHP natif.
-    	 */
        var_dump($_POST);
        $orders = json_decode($_POST['orders']);
        var_dump($orders);
@@ -33,12 +21,12 @@ class ChargeController
        $totalAmount = 0;
 
 
-       $figurineModel = new FigurineModel();
+       $productsModel = new ProductsModel();
 
        foreach($orders as $order) {
-           $figurine = $figurineModel->getFigurine($order->id);
+           $product = $productsModel->getOneProduct($order->id);
 
-           $order->safePrice = $figurine['SalePrice'];
+           $order->safePrice = $product['Price'];
            $totalAmount += ($order->safePrice*$order->quantity);
        }
 
