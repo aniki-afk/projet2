@@ -15,7 +15,11 @@ class SucessController
        $orderModel = new OrderModel();
        $orderModel->sucessTime($user);
 
+       $productsModel = new ProductsModel();
+       $lines = $productsModel->getAllLines();
+
        return[
+         'lines'=>$lines,
          "user"=>$user,
          "artworks"=>$artworks
        ];

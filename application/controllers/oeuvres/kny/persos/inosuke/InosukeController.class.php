@@ -6,8 +6,11 @@ class InosukeController
     {
 
       $artworkModel = new ArtworksModel();
+      $productsModel = new ProductsModel();
       $artworks = $artworkModel->getAllArtworks();
+      $lines = $productsModel->getAllLines();
       return[
+        'lines'=>$lines,
         "artworks"=>$artworks
       ];
 

@@ -10,7 +10,10 @@ class ProfilController
        }
        $artworkModel = new ArtworksModel();
        $artworks = $artworkModel->getAllArtworks();
+       $productsModel = new ProductsModel();
+       $lines = $productsModel->getAllLines();
        return[
+         'lines'=>$lines,
          "artworks"=>$artworks
        ];
 
@@ -21,6 +24,14 @@ class ProfilController
 
        $userModel = new UserModel();
        $userModel->updateUser($_POST);
+       $artworkModel = new ArtworksModel();
+       $artworks = $artworkModel->getAllArtworks();
+       $productsModel = new ProductsModel();
+       $lines = $productsModel->getAllLines();
+       return[
+         'lines'=>$lines,
+         "artworks"=>$artworks
+       ];
 
 
     }

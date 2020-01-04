@@ -15,7 +15,10 @@ class PaymentController
        }
        $artworkModel = new ArtworksModel();
        $artworks = $artworkModel->getAllArtworks();
+       $productsModel = new ProductsModel();
+       $lines = $productsModel->getAllLines();
        return[
+         'lines'=>$lines,
          "artworks"=>$artworks
        ];
 
@@ -26,7 +29,10 @@ class PaymentController
     {
       $artworkModel = new ArtworksModel();
       $artworks = $artworkModel->getAllArtworks();
+      $productsModel = new ProductsModel();
+      $lines = $productsModel->getAllLines();
       return[
+        'lines'=>$lines,
         "artworks"=>$artworks
       ];
 

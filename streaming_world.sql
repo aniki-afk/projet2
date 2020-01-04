@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Ven 03 Janvier 2020 à 12:01
--- Version du serveur :  5.7.28-0ubuntu0.16.04.2
--- Version de PHP :  7.0.33-0ubuntu0.16.04.7
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  sam. 04 jan. 2020 à 16:46
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,22 +28,24 @@ SET time_zone = "+00:00";
 -- Structure de la table `artworks`
 --
 
-CREATE TABLE `artworks` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `artworks`;
+CREATE TABLE IF NOT EXISTS `artworks` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(120) NOT NULL,
   `Url` varchar(500) NOT NULL,
   `Image` varchar(120) NOT NULL,
-  `Image_Cover` varchar(150) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `Image_Cover` varchar(150) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `artworks`
+-- Déchargement des données de la table `artworks`
 --
 
 INSERT INTO `artworks` (`Id`, `Name`, `Url`, `Image`, `Image_Cover`) VALUES
 (1, 'Kimetsu No Yaiba', 'kny', 'kny_cover.gif', 'kny_cover.jpg'),
 (2, 'Dragon Ball', 'db', 'db_cover.gif', 'db_cover.jpg'),
-(3, 'Naruto', 'naruto', 'naruto_cover.gif', 'naruto_cover.png'),
+(3, 'Naruto', 'naruto', 'naruto_cover.gif', 'naruto_cover.jpg'),
 (4, 'One Piece', 'op', 'op_cover.gif', 'op_cover.jpg'),
 (5, 'My Hero Academia', 'mha', 'mha_cover.gif', 'mha_cover.jpg'),
 (6, 'One Punch Man', 'opm', 'opm_cover.gif', 'opm_cover.jpg'),
@@ -50,10 +54,27 @@ INSERT INTO `artworks` (`Id`, `Name`, `Url`, `Image`, `Image_Cover`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Post_Id` int(200) NOT NULL,
+  `Contents` varchar(900) NOT NULL,
+  `Nickname` varchar(255) NOT NULL,
+  `CreationTimestamp` datetime NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `orderline`
 --
 
-CREATE TABLE `orderline` (
+DROP TABLE IF EXISTS `orderline`;
+CREATE TABLE IF NOT EXISTS `orderline` (
   `Order_Id` int(11) NOT NULL,
   `Product_Id` int(11) NOT NULL,
   `Quantity_Ordered` int(200) NOT NULL,
@@ -61,7 +82,7 @@ CREATE TABLE `orderline` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `orderline`
+-- Déchargement des données de la table `orderline`
 --
 
 INSERT INTO `orderline` (`Order_Id`, `Product_Id`, `Quantity_Ordered`, `PriceEach`) VALUES
@@ -73,7 +94,8 @@ INSERT INTO `orderline` (`Order_Id`, `Product_Id`, `Quantity_Ordered`, `PriceEac
 (2, 26, 1, 22.5),
 (3, 7, 1, 130),
 (4, 27, 1, 175),
-(5, 1, 1, 70);
+(5, 1, 1, 70),
+(6, 26, 3, 22.5);
 
 -- --------------------------------------------------------
 
@@ -81,18 +103,20 @@ INSERT INTO `orderline` (`Order_Id`, `Product_Id`, `Quantity_Ordered`, `PriceEac
 -- Structure de la table `orders`
 --
 
-CREATE TABLE `orders` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `User_Id` int(11) NOT NULL,
   `TaxRate` double DEFAULT NULL,
   `TaxAmount` double DEFAULT NULL,
   `TotalAmount` double DEFAULT NULL,
   `CreationTimestamp` datetime DEFAULT NULL,
-  `CompleteTimestamp` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `CompleteTimestamp` datetime DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `orders`
+-- Déchargement des données de la table `orders`
 --
 
 INSERT INTO `orders` (`Id`, `User_Id`, `TaxRate`, `TaxAmount`, `TotalAmount`, `CreationTimestamp`, `CompleteTimestamp`) VALUES
@@ -100,7 +124,34 @@ INSERT INTO `orders` (`Id`, `User_Id`, `TaxRate`, `TaxAmount`, `TotalAmount`, `C
 (2, 1, 20, 1050, 52.5, '2020-01-03 10:27:34', NULL),
 (3, 1, 20, 2600, 130, '2020-01-03 10:29:08', '2020-01-03 10:30:28'),
 (4, 1, 20, 3500, 175, '2020-01-03 10:30:53', '2020-01-03 11:02:29'),
-(5, 1, 20, 1400, 70, '2020-01-03 11:55:15', '2020-01-03 11:55:15');
+(5, 1, 20, 1400, 70, '2020-01-03 11:55:15', '2020-01-03 11:55:15'),
+(6, 1, 20, 1350, 67.5, '2020-01-04 17:45:23', '2020-01-04 17:45:23');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `post`
+--
+
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE IF NOT EXISTS `post` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Content` varchar(900) NOT NULL,
+  `CreationTimestamp` datetime NOT NULL,
+  `Nickname` varchar(255) NOT NULL,
+  `Product_Id` int(255) DEFAULT NULL,
+  `Episode_Id` int(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `post`
+--
+
+INSERT INTO `post` (`Id`, `Content`, `CreationTimestamp`, `Nickname`, `Product_Id`, `Episode_Id`) VALUES
+(1, 'hate de voir la suite !!', '2020-01-04 15:30:46', 'admin', NULL, 1),
+(31, 'Superbe episode!', '2020-01-04 16:25:56', 'admin', NULL, 1),
+(30, 'Superbe episode!', '2020-01-04 16:25:46', 'admin', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -108,12 +159,14 @@ INSERT INTO `orders` (`Id`, `User_Id`, `TaxRate`, `TaxAmount`, `TotalAmount`, `C
 -- Structure de la table `productline`
 --
 
-CREATE TABLE `productline` (
-  `ProductLine` varchar(50) COLLATE latin1_bin NOT NULL
+DROP TABLE IF EXISTS `productline`;
+CREATE TABLE IF NOT EXISTS `productline` (
+  `ProductLine` varchar(50) COLLATE latin1_bin NOT NULL,
+  PRIMARY KEY (`ProductLine`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Contenu de la table `productline`
+-- Déchargement des données de la table `productline`
 --
 
 INSERT INTO `productline` (`ProductLine`) VALUES
@@ -128,8 +181,9 @@ INSERT INTO `productline` (`ProductLine`) VALUES
 -- Structure de la table `products`
 --
 
-CREATE TABLE `products` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Artworks_Id` int(11) NOT NULL,
   `Name` varchar(120) NOT NULL,
   `Photo` varchar(90) NOT NULL,
@@ -137,11 +191,12 @@ CREATE TABLE `products` (
   `Description` varchar(900) NOT NULL,
   `QuantityInStock` int(255) NOT NULL,
   `BuyPrice` double NOT NULL,
-  `Price` double NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `Price` double NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `products`
+-- Déchargement des données de la table `products`
 --
 
 INSERT INTO `products` (`Id`, `Artworks_Id`, `Name`, `Photo`, `ProductLine`, `Description`, `QuantityInStock`, `BuyPrice`, `Price`) VALUES
@@ -165,18 +220,20 @@ INSERT INTO `products` (`Id`, `Artworks_Id`, `Name`, `Photo`, `ProductLine`, `De
 -- Structure de la table `streaming`
 --
 
-CREATE TABLE `streaming` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `streaming`;
+CREATE TABLE IF NOT EXISTS `streaming` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Artworks_Id` int(11) NOT NULL,
   `Caption` varchar(120) NOT NULL,
   `Status` int(200) NOT NULL,
   `Description` varchar(900) NOT NULL,
   `Video` varchar(120) NOT NULL,
-  `CreationTimestamp` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `CreationTimestamp` datetime NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `streaming`
+-- Déchargement des données de la table `streaming`
 --
 
 INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Status`, `Description`, `Video`, `CreationTimestamp`) VALUES
@@ -226,7 +283,11 @@ INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Status`, `Description`
 (46, 7, 'Vinland Saga 16 VOSTFR', 16, 'ep 16', 'Vinland_Saga_16_VOSTFR.mp4', '2020-01-02 15:06:57'),
 (47, 7, 'Vinland Saga 17 VOSTFR', 17, 'ep 17', 'Vinland_Saga_17_VOSTFR.mp4', '2020-01-02 15:08:00'),
 (48, 7, 'Vinland Saga 18 VOSTFR', 18, 'ep 18', 'Vinland_Saga_18_VOSTFR.mp4', '2020-01-02 15:08:53'),
-(49, 7, 'Vinland Saga 19 VOSTFR', 19, 'ep 19', 'Vinland_Saga_19_VOSTFR.mp4', '2020-01-02 15:09:42');
+(49, 7, 'Vinland Saga 19 VOSTFR', 19, 'ep 19', 'Vinland_Saga_19_VOSTFR.mp4', '2020-01-02 15:09:42'),
+(50, 7, 'Vinland Saga 20 VOSTFR', 20, 'ep 20', 'Vinland_Saga_20_VOSTFR.mp4', '2020-01-04 10:48:50'),
+(51, 7, 'Vinland Saga 21 VOSTFR', 21, 'ep 21', 'Vinland_Saga_21_VOSTFR-1.mp4', '2020-01-04 10:49:41'),
+(52, 7, 'Vinland Saga 22 VOSTFR', 22, 'ep 22', 'Vinland_Saga_22_VOSTFR.mp4', '2020-01-04 10:50:20'),
+(53, 7, 'Vinland Saga 23 VOSTFR', 23, 'ep 23', 'Vinland_Saga_23_VOSTFR.mp4', '2020-01-04 10:51:20');
 
 -- --------------------------------------------------------
 
@@ -234,8 +295,9 @@ INSERT INTO `streaming` (`Id`, `Artworks_Id`, `Caption`, `Status`, `Description`
 -- Structure de la table `users`
 --
 
-CREATE TABLE `users` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(120) NOT NULL,
   `LastName` varchar(120) NOT NULL,
   `Email` varchar(120) NOT NULL,
@@ -245,86 +307,19 @@ CREATE TABLE `users` (
   `City` varchar(120) NOT NULL,
   `Zip` varchar(11) NOT NULL,
   `Role` varchar(11) NOT NULL,
-  `CreationTimestamp` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `CreationTimestamp` datetime NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`Id`, `FirstName`, `LastName`, `Email`, `Pseudo`, `Password`, `Address`, `City`, `Zip`, `Role`, `CreationTimestamp`) VALUES
 (1, 'Abmane', 'Oussoul', 'admin@gmail.com', 'admin', '$2y$11$1cf67a5dea60152ac284fu.dmjXduH4H4JEW7C3vmtO/PI1mx9cAa', '05 avenue nord', 'Paris', '75010', 'admin', '2019-12-26 16:53:31'),
 (3, 'Kuzumo', 'Power', 'sallukhan0805@gmail.com', 'Omoshiroy', '$2y$11$423b35d4a0d61dbe6c816u.Ja2kSZFDmMAB7EhU53jPBvC0pLB75y', 'chez konoha ', 'Le village de beerus', '68125', 'user', '2019-12-27 17:34:38');
+COMMIT;
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `artworks`
---
-ALTER TABLE `artworks`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Index pour la table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Index pour la table `productline`
---
-ALTER TABLE `productline`
-  ADD PRIMARY KEY (`ProductLine`);
-
---
--- Index pour la table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Index pour la table `streaming`
---
-ALTER TABLE `streaming`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`Id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `artworks`
---
-ALTER TABLE `artworks`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT pour la table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT pour la table `products`
---
-ALTER TABLE `products`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
---
--- AUTO_INCREMENT pour la table `streaming`
---
-ALTER TABLE `streaming`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
---
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

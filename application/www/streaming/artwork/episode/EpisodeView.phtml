@@ -29,14 +29,19 @@
                 <div class="col-sm-3 multi-gd-img">
                   <ul class="multi-column-dropdown">
                     <li><a href="<?= $requestUrl ?>/products">Tous nos produits</a></li>
-                    <li><a href="<?= $requestUrl ?>/products/figurines">Figurines</a></li>
-                    <li><a href="<?= $requestUrl ?>/products/tomes">Tomes</a></li>
-                    <li><a href="<?= $requestUrl ?>/products/blu_ray">Blu-ray</a></li>
-                    <li><a href="<?= $requestUrl ?>/products/accessoires">Accessoires</a></li>
                   </ul>
                 </div>
+                <div class="col-sm-3 multi-gd-img">
+                  <ul class="multi-column-dropdown">
+                    <?php foreach ($lines as $line) {?>
+                      <li>
+                        <a href="<?= $requestUrl ?>/products/product?name=<?=$line['ProductLine']?>"><?= ucfirst($line['ProductLine']) ?></a>
+                        </li>
+                      <?php } ?>
+                  </ul>
                 <div class="clearfix"></div>
               </div>
+            </div>
             </ul>
           </li>
           <li class="dropdown menu__item">
@@ -103,20 +108,52 @@
       </ul>
     </aside>
     <main class="container">
-      <div class="episode">
-        <?php if ($status - 1 === 0){ ?>
+      <div class="content">
+        <div class="episode">
+          <?php if ($status - 1 === 0){ ?>
 
-        <?php }else{ ?>
-          <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $status-1?>"><i class="far fa-arrow-alt-circle-left"></i> Episode précédent</a>
-        <?php } ?>
-        <h2 class="title-vid"><?= $streamings['Caption'] ?></h2>
-        <?php if (($status + 1) > count($episodes)){ ?>
+          <?php }else{ ?>
+            <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $status-1?>"><i class="far fa-arrow-alt-circle-left"></i> Episode précédent</a>
+          <?php } ?>
+          <h2 class="title-vid"><?= $streamings['Caption'] ?></h2>
+          <?php if (($status + 1) > count($episodes)){ ?>
 
-        <?php }else{ ?>
-          <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $status+1?>">Episode suivant <i class="far fa-arrow-alt-circle-right"></i></a>
-        <?php } ?>
+          <?php }else{ ?>
+            <a href="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $status+1?>">Episode suivant <i class="far fa-arrow-alt-circle-right"></i></a>
+          <?php } ?>
+        </div>
+        <video src="../../../../streaming_vids/<?= $streamings['Video']?> " controls width="854"  height="480" controlsList="nodownload" poster="<?= $wwwUrl ?>/ressources/images/cover/<?= $streamings['Image_Cover'] ?>">
+        </video>
       </div>
-      <video src="../../../../streaming_vids/<?= $streamings['Video']?> " controls width="854"  height="480" controlsList="nodownload" poster="<?= $wwwUrl ?>/ressources/images/cover/<?= $streamings['Image_Cover'] ?>">
-      </video>
+      <section class="espace-com">
+        <h4>Espace commentaire</h4>
+        <div class="show-post">
+          <?php for($i = 0; $i < count($posts); $i++){ ?>
+            <div class="post">
+              <h5 class="title-post"><?= $posts[$i]['Nickname'] ?></h5>
+              <p><?= $posts[$i]['Content'] ?></p>
+              <p><em><?= $posts[$i]['CreationTimestamp'] ?></em></p>
+              <div class="show-com">
+                <?php foreach ($comments as $comment): ?>
+                  <h6 class="title-comment"><?= $comment['Nickname'] ?></h6>
+                  <p><?= $comment['Content'] ?></p>
+                  <p><em><?= $comment['CreationTimestamp'] ?></em></p>
+                <?php endforeach; ?>
+              </div>
+              <p class="add-comment" data-id="<?= $i ?>">Répondre</p>
+              <form class="form-com" action="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $streamings['Status'] ?>" method="post">
+                <textarea name="com" rows="1" cols="40" placeholder="Répondre"></textarea>
+                <input type="hidden" name="postId" value="<?= $posts[$i]['Id'] ?>">
+                <input type="submit" name="envoyer" value="Envoyer">
+              </form>
+            </div>
+          <?php } ?>
+        </div>
+        <form class="form-post" action="<?= $requestUrl ?>/streaming/artwork/episode?artworkId=<?= $streamings['ArtworkId'] ?>&status=<?= $streamings['Status'] ?>" method="post">
+          <textarea name="post" rows="4" cols="80" placeholder="Ecrire un nouveau commentaire"></textarea>
+          <input type="hidden" name="episodeId" value="<?= $streamings['Id'] ?>">
+          <input type="submit" name="envoyer" value="Envoyer">
+        </form>
+      </section>
     </main>
     <script type="text/javascript" src="<?= $wwwUrl ?>/js/episode.js"></script>

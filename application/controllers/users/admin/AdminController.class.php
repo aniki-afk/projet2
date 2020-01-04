@@ -13,9 +13,12 @@ class AdminController
        $users = $userModel->getAllUsers();
        $artworkModel = new ArtworksModel();
        $artworks = $artworkModel->getAllArtworks();
+       $productsModel = new ProductsModel();
+       $lines = $productsModel->getAllLines();
 
 
        return [
+         'lines'=>$lines,
          "artworks"=>$artworks,
          'users'=>$users
        ];

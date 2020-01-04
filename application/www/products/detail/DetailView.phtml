@@ -31,14 +31,19 @@
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
                   <li><a href="<?= $requestUrl ?>/products">Tous nos produits</a></li>
-                  <li><a href="<?= $requestUrl ?>/products/figurines">Figurines</a></li>
-                  <li><a href="<?= $requestUrl ?>/products/tomes">Tomes</a></li>
-                  <li><a href="<?= $requestUrl ?>/products/blu_ray">Blu-ray</a></li>
-                  <li><a href="<?= $requestUrl ?>/products/accessoires">Accessoires</a></li>
                 </ul>
               </div>
+              <div class="col-sm-3 multi-gd-img">
+                <ul class="multi-column-dropdown">
+                  <?php foreach ($lines as $line) {?>
+                    <li>
+                      <a href="<?= $requestUrl ?>/products/product?name=<?=$line['ProductLine']?>"><?= ucfirst($line['ProductLine']) ?></a>
+                      </li>
+                    <?php } ?>
+                </ul>
               <div class="clearfix"></div>
             </div>
+          </div>
           </ul>
         </li>
         <li class="dropdown menu__item">
@@ -53,7 +58,7 @@
               <div class="col-sm-3 multi-gd-img">
                 <ul class="multi-column-dropdown">
                   <?php foreach ($artworks as $artwork): ?>
-                    <li><a href="<?= $requestUrl ?>/streaming/<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
+                    <li><a href="<?= $requestUrl ?>/streaming/artwork?name=<?= $artwork['Url'] ?>"><?= $artwork['Name'] ?></a></li>
                   <?php endforeach; ?>
                 </ul>
               </div>

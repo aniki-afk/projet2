@@ -9,7 +9,10 @@ class LoginController
       $error = null;
       $artworkModel = new ArtworksModel();
       $artworks = $artworkModel->getAllArtworks();
+      $productsModel = new ProductsModel();
+      $lines = $productsModel->getAllLines();
       return [
+        'lines'=>$lines,
         'artworks'=>$artworks,
         'error'=>$error
       ];
@@ -22,9 +25,12 @@ class LoginController
        $error = $userModel->logUser($_POST);
        $artworkModel = new ArtworksModel();
        $artworks = $artworkModel->getAllArtworks();
+       $productsModel = new ProductsModel();
+       $lines = $productsModel->getAllLines();
 
        if (array_key_exists('firstName', $_SESSION ) == false) {
          return [
+           'lines'=>$lines,
            'artworks'=>$artworks,
            'error'=>$error
          ];

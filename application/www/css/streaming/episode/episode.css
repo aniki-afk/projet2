@@ -54,3 +54,7 @@ aside.episode-list a:hover {
   /* padding: 5px; */
   transform: scale(1.2);
 }
+
+.add-comment{
+  cursor: pointer;
+}

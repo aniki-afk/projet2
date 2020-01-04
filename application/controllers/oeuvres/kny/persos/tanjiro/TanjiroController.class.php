@@ -6,7 +6,10 @@ class TanjiroController
     {
       $artworkModel = new ArtworksModel();
       $artworks = $artworkModel->getAllArtworks();
+      $productsModel = new ProductsModel();
+      $lines = $productsModel->getAllLines();
       return[
+        'lines'=>$lines,
         "artworks"=>$artworks
       ];
 

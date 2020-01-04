@@ -40,8 +40,8 @@ class ProductsModel {
     $sql = 'SELECT *
     FROM products
     INNER JOIN productline ON productline.ProductLine = products.ProductLine
-    WHERE products.ProductLine = figurines';
-    return $database->queryOne($sql, [$_GET['product']]);
+    WHERE products.ProductLine = ?';
+    return $database->query($sql, [$_GET['name']]);
   }
 
   public function search($post)

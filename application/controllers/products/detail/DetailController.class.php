@@ -9,7 +9,9 @@ class DetailController
       $productsModel = new ProductsModel();
       $artworks = $artworkModel->getAllArtworks();
       $product = $productsModel->getOneProduct($_GET['productId']);
+      $lines = $productsModel->getAllLines();
       return[
+        'lines'=>$lines,
         "artworks"=>$artworks,
         "product"=>$product
       ];
